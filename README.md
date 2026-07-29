@@ -5,6 +5,8 @@ contracts.
 
 - `mainnet.md` is the human-readable mainnet address and purpose registry.
 - `addresses.json` is the machine-readable address registry.
+- `frontend-production-config.json` records the scalar values selected when the
+  frontend runs with `NEXT_PUBLIC_APP_ENV=production`.
 - `contracts/` contains Arena's Robinhood-specific Solidity source, preserving
   the original paths and relative imports.
 - `abis/` contains raw JSON ABI arrays. Start with `abis/index.json`.

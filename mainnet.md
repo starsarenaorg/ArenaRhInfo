@@ -73,6 +73,34 @@ Every proxy, current implementation, and price helper below is source-verified.
 THROBBIN is documented because it is a deployed and verified production
 contract set, but it is intentionally not an active launch pair.
 
+## Frontend Production Scalars
+
+The exact values selected by the frontend when
+`NEXT_PUBLIC_APP_ENV === "production"` are recorded in
+[`frontend-production-config.json`](frontend-production-config.json).
+
+All new launches use curve parameter `a = 65,535`, `b = 0`, a `75%` bonding
+allocation, a `25%` LP allocation, zero launch creator fee, and a fixed
+`1,000,000,000` token supply.
+
+| Pair | Curve scaler | Frontend graduation target | Native pool fee / tick spacing |
+| --- | ---: | ---: | --- |
+| NATIVE | `3,938,401,442,307` | `2.340000000000203764` | Manager configuration |
+| ARENA | `2,530,914` | `3,641,316.948982599991773046` | `2,500 / 60` |
+| NVDA | `438,147,116,820` | `21.033709959998676681` | `50,000 / 1,000` |
+| SPCX | `247,651,723,526` | `37.212982989981717726` | `50,000 / 1,000` |
+| AAPL | `662,723,596,814` | `13.906037780004434015` | `50,000 / 1,000` |
+| META | `1,287,397,251,933` | `7.158520309998011892` | `50,000 / 1,000` |
+| TSLA | `773,334,366,213` | `11.917043619997560025` | `50,000 / 1,000` |
+| GOOGL | `711,636,182,314` | `12.95024003000610569` | `50,000 / 1,000` |
+| GME | `64,048,060,738` | `143.889748866525550739` | `50,000 / 1,000` |
+| THROBBIN | `1,447,301` | `6,367,617.637934334` | Disabled |
+
+The frontend currently marks THROBBIN `enabled: true`, even though its
+production manager is paused, unregistered, and LP-disabled. This is a known
+frontend/configuration mismatch; THROBBIN should not be treated as active until
+those on-chain controls are intentionally changed.
+
 ## Dynamic Launch Tokens
 
 `RobinhoodLaunchToken` has no single contract address. The token factory deploys
