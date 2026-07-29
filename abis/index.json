@@ -1,0 +1,146 @@
+{
+  "chain": {
+    "name": "Robinhood Chain",
+    "chainId": 4663,
+    "explorer": "https://robinhoodchain.blockscout.com"
+  },
+  "format": "Each ABI file is a raw JSON ABI array.",
+  "contracts": {
+    "BridgedArenaOFT": {
+      "sourceName": "contracts/bridge/BridgedArenaOFT.sol",
+      "file": "BridgedArenaOFT.json",
+      "entries": 90
+    },
+    "RobinhoodArenaEthLiquidityLauncher": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaEthLiquidityLauncher.sol",
+      "file": "RobinhoodArenaEthLiquidityLauncher.json",
+      "entries": 40
+    },
+    "RobinhoodArenaReferralRegistry": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaReferralRegistry.sol",
+      "file": "RobinhoodArenaReferralRegistry.json",
+      "entries": 24
+    },
+    "RobinhoodArenaFeeHelper": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaFeeHelper.sol",
+      "file": "RobinhoodArenaFeeHelper.json",
+      "entries": 45
+    },
+    "RobinhoodArenaFeeHook": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaFeeHook.sol",
+      "file": "RobinhoodArenaFeeHook.json",
+      "entries": 39
+    },
+    "RobinhoodArenaFeeHookFactory": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaFeeHookFactory.sol",
+      "file": "RobinhoodArenaFeeHookFactory.json",
+      "entries": 2
+    },
+    "RobinhoodArenaFeePoolDeployer": {
+      "sourceName": "contracts/robinhood/RobinhoodArenaFeePoolDeployer.sol",
+      "file": "RobinhoodArenaFeePoolDeployer.json",
+      "entries": 24
+    },
+    "RobinhoodLaunchToken": {
+      "sourceName": "contracts/robinhood/RobinhoodLaunchToken.sol",
+      "file": "RobinhoodLaunchToken.json",
+      "entries": 46
+    },
+    "RobinhoodLaunchTokenFactory": {
+      "sourceName": "contracts/robinhood/RobinhoodLaunchTokenFactory.sol",
+      "file": "RobinhoodLaunchTokenFactory.json",
+      "entries": 6
+    },
+    "RobinhoodNativePairTokenManager": {
+      "sourceName": "contracts/robinhood/RobinhoodNativePairTokenManager.sol",
+      "file": "RobinhoodNativePairTokenManager.json",
+      "entries": 115
+    },
+    "RobinhoodArenaPairTokenManager": {
+      "sourceName": "contracts/arena-pair/RobinhoodArenaPairTokenManager.sol",
+      "file": "RobinhoodArenaPairTokenManager.json",
+      "entries": 111
+    },
+    "RobinhoodPrismTokenManager": {
+      "sourceName": "contracts/prism/RobinhoodPrismTokenManager.sol",
+      "file": "RobinhoodPrismTokenManager.json",
+      "entries": 112
+    },
+    "RobinhoodTokenManagerProxy": {
+      "sourceName": "contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "file": "RobinhoodTokenManagerProxy.json",
+      "entries": 7
+    },
+    "RobinhoodPrismRegistry": {
+      "sourceName": "contracts/prism/RobinhoodPrismRegistry.sol",
+      "file": "RobinhoodPrismRegistry.json",
+      "entries": 25
+    },
+    "RobinhoodNativePriceHelper": {
+      "sourceName": "contracts/helpers/RobinhoodNativePriceHelper.sol",
+      "file": "RobinhoodNativePriceHelper.json",
+      "entries": 7
+    },
+    "RobinhoodPrismPriceHelper": {
+      "sourceName": "contracts/prism/RobinhoodPrismPriceHelper.sol",
+      "file": "RobinhoodPrismPriceHelper.json",
+      "entries": 9
+    },
+    "RobinhoodSingleTxBuyer": {
+      "sourceName": "contracts/helpers/RobinhoodSingleTxBuyer.sol",
+      "file": "RobinhoodSingleTxBuyer.json",
+      "entries": 32
+    },
+    "RobinhoodSingleTxQuoter": {
+      "sourceName": "contracts/helpers/RobinhoodSingleTxQuoter.sol",
+      "file": "RobinhoodSingleTxQuoter.json",
+      "entries": 15
+    },
+    "RobinhoodPrismBuyer": {
+      "sourceName": "contracts/prism/RobinhoodPrismBuyer.sol",
+      "file": "RobinhoodPrismBuyer.json",
+      "entries": 26
+    },
+    "RobinhoodPrismQuoter": {
+      "sourceName": "contracts/prism/RobinhoodPrismQuoter.sol",
+      "file": "RobinhoodPrismQuoter.json",
+      "entries": 8
+    },
+    "RobinhoodPrismNativeRouter": {
+      "sourceName": "contracts/prism/RobinhoodPrismNativeRouter.sol",
+      "file": "RobinhoodPrismNativeRouter.json",
+      "entries": 33
+    },
+    "RobinhoodPostBondQuoter": {
+      "sourceName": "contracts/helpers/RobinhoodPostBondQuoter.sol",
+      "file": "RobinhoodPostBondQuoter.json",
+      "entries": 18
+    },
+    "RobinhoodPostBondRouter": {
+      "sourceName": "contracts/helpers/RobinhoodPostBondRouter.sol",
+      "file": "RobinhoodPostBondRouter.json",
+      "entries": 26
+    },
+    "RobinhoodTokenDataHelper": {
+      "sourceName": "contracts/helpers/RobinhoodTokenDataHelper.sol",
+      "file": "RobinhoodTokenDataHelper.json",
+      "entries": 9
+    },
+    "RobinhoodLPFeeCompounder": {
+      "sourceName": "contracts/robinhood/RobinhoodLPFeeCompounder.sol",
+      "file": "RobinhoodLPFeeCompounder.json",
+      "entries": 33
+    },
+    "CreationFeeBuybackAdapter": {
+      "sourceName": "contracts/robinhood/CreationFeeBuybackAdapter.sol",
+      "file": "CreationFeeBuybackAdapter.json",
+      "entries": 64
+    },
+    "UniswapV4PositionManager": {
+      "sourceName": "@uniswap/v4-periphery/src/PositionManager.sol",
+      "file": "UniswapV4PositionManager.json",
+      "entries": 74,
+      "external": true
+    }
+  }
+}

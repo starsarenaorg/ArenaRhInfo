@@ -1,0 +1,172 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IPrismRegistryView",
+        "name": "registry",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPrismPostBondQuoter",
+        "name": "postBondQuoter",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "CurveNotConfigured",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDependency",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ManagerNotApproved",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PriceHelperMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "POST_BOND_QUOTER",
+    "outputs": [
+      {
+        "internalType": "contract IPrismPostBondQuoter",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "REGISTRY",
+    "outputs": [
+      {
+        "internalType": "contract IPrismRegistryView",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "manager",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "priceHelper",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "a",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "b",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint128",
+            "name": "curveScaler",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint8",
+            "name": "creatorFeeBasisPoints",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenSplit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "enableHolderRewards",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "predictedToken",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RobinhoodPrismQuoter.QuoteParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "quoteCreation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "preBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "preBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondInputConsumed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "tokenBonds",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RobinhoodPrismQuoter.QuoteResult",
+        "name": "quote",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

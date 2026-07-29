@@ -1,0 +1,468 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IRobinhoodNativeManagerHelper",
+        "name": "nativeManager_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IRobinhoodArenaManagerHelper",
+        "name": "arenaManager_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract RobinhoodNativePriceHelper",
+        "name": "nativePriceHelper_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract RobinhoodArenaPairPriceHelper",
+        "name": "arenaPriceHelper_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IArenaFeeHelperMinimal",
+        "name": "feeHelper_",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDependency",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPoolConfiguration",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPredictedToken",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidQuoteAmount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ARENA_MANAGER",
+    "outputs": [
+      {
+        "internalType": "contract IRobinhoodArenaManagerHelper",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "ARENA_PRICE_HELPER",
+    "outputs": [
+      {
+        "internalType": "contract RobinhoodArenaPairPriceHelper",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "FEE_DENOMINATOR",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "FEE_HELPER",
+    "outputs": [
+      {
+        "internalType": "contract IArenaFeeHelperMinimal",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "GRANULARITY_SCALER",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "NATIVE_MANAGER",
+    "outputs": [
+      {
+        "internalType": "contract IRobinhoodNativeManagerHelper",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "NATIVE_PRICE_HELPER",
+    "outputs": [
+      {
+        "internalType": "contract RobinhoodNativePriceHelper",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "a",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "b",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint128",
+            "name": "curveScaler",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint8",
+            "name": "creatorFeeBasisPoints",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenSplit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "enableHolderRewards",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "predictedToken",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RobinhoodSingleTxQuoter.ArenaQuoteParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "quoteArenaCreation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "preBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "preBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondInputConsumed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "tokenBonds",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RobinhoodSingleTxQuoter.QuoteResult",
+        "name": "quote",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint16",
+            "name": "a",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "b",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint128",
+            "name": "curveScaler",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint8",
+            "name": "creatorFeeBasisPoints",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenSplit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "enableHolderRewards",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "predictedToken",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RobinhoodSingleTxQuoter.NativeQuoteParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "quoteNativeCreation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "preBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "preBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondCost",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "postBondInputConsumed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalTokenOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "tokenBonds",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RobinhoodSingleTxQuoter.QuoteResult",
+        "name": "quote",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "pairedToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "launchToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenAmountToLp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "pairedTokenAmountToLp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "pairedTokenAmountIn",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "int24",
+                "name": "tickSpacing",
+                "type": "int24"
+              },
+              {
+                "internalType": "int24",
+                "name": "tickLower",
+                "type": "int24"
+              },
+              {
+                "internalType": "int24",
+                "name": "tickUpper",
+                "type": "int24"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint160",
+                "name": "startingPrice",
+                "type": "uint160"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0Amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "token0",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "token1",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "hookContract",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes",
+                "name": "hookData",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct IArenaPoolDeployer.PoolInitParams",
+            "name": "config",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint16",
+            "name": "creatorFeePpm",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint160",
+            "name": "invertedStartingPrice",
+            "type": "uint160"
+          }
+        ],
+        "internalType": "struct RobinhoodSingleTxQuoter.PostBondQuoteParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "quotePostBond",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "pairedTokenConsumed",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
