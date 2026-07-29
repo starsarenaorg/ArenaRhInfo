@@ -1,0 +1,28 @@
+# Environment and secret files
+.env
+.env.*
+!.env.example
+!.env.*.example
+secrets/
+private/
+
+# Private keys and keystores
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+keystore/
+
+# Dependencies and generated output
+node_modules/
+artifacts/
+cache/
+coverage/
+
+# Logs and local editor files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
