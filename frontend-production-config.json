@@ -1,88 +1,596 @@
 {
-  "source": "../starsarena-frontend-react/src/environments/ROBINHOOD_LAUNCHPAD.ts",
-  "environmentSelection": "NEXT_PUBLIC_APP_ENV === \"production\"",
+  "source": [
+    "contractsV2/deployments/robinhood.v2.production.native-replacement.json",
+    "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json",
+    "contractsV2/deployments/robinhood.v2.production.prism-expansion.json",
+    "contractsV2/deployments/robinhood.v2.production.activation.json"
+  ],
   "chainId": 4663,
   "launchEconomics": {
+    "totalSupplyWei": "1000000000000000000000000000",
+    "totalSupplyTokens": "1000000000",
+    "salePercentage": "75",
+    "lpPercentage": "25",
     "curveA": "65535",
     "curveB": "0",
-    "creatorFeeBasisPoints": "0",
-    "tokenSplitPercent": "75",
-    "totalSupplyWei": "1000000000000000000000000000"
+    "targetBondUsdE6": "5000000000",
+    "targetCreationFeeUsdE6": "100000",
+    "postBondProtocolFeePpm": "2500",
+    "referralFeePpm": "0"
   },
   "pairs": {
     "NATIVE": {
       "enabled": true,
-      "curveScaler": "3938401442307",
-      "graduationTarget": "2.340000000000203764"
-    },
-    "ARENA": {
-      "enabled": true,
-      "curveScaler": "2530914",
-      "graduationTarget": "3641316.948982599991773046",
-      "nativePool": {
-        "enabled": true,
-        "fee": 2500,
-        "tickSpacing": 60,
-        "hooks": "0x99d4C5Cf21d8F00b627AFe2Bf1eE2840f886e044"
+      "kind": "native",
+      "manager": "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+      "pairToken": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+      "priceHelper": "0x24a21CB67D0e6609D26Cc678db7ef13bffFEC142",
+      "tokenIdNamespace": {
+        "start": "1200000000000",
+        "endExclusive": "200000000000"
+      },
+      "economics": {
+        "curveScaler": "3938401442307",
+        "terminalReserve": "2340000000000411335",
+        "creationFeeAmount": "800000000000000",
+        "startingPrice": "818920342453882326786417951080282",
+        "invertedStartingPrice": "7665094405369685981117125"
       }
     },
     "NVDA": {
       "enabled": true,
-      "curveScaler": "438147116820",
-      "graduationTarget": "21.033709959998676681",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x2AF1D4240F9c5Bdd8142a73F55E0E74B39E79A36",
+      "pairToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "priceHelper": "0x490e7D4D30c9a5501B1fbf1A848fa7BB0DDaA606",
+      "tokenIdNamespace": {
+        "start": "200000000000",
+        "endExclusive": "300000000000"
+      },
+      "economics": {
+        "curveScaler": "438147116820",
+        "terminalReserve": "21033709959995167087",
+        "targetReserve": "21033709959995167087",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "7003455036625531",
+        "startingPrice": "273143989005776987500897208535498",
+        "invertedStartingPrice": "22980925768254487353604316",
+        "capturedAt": "2026-09-10T15:48:29.784Z"
+      }
     },
     "SPCX": {
       "enabled": true,
-      "curveScaler": "247651723526",
-      "graduationTarget": "37.212982989981717726",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x7685Ff498685247bB3419d2982281EB002FF4dB6",
+      "pairToken": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+      "priceHelper": "0x6367B02ea0EDfe618191E61E10E483A5182d6bE0",
+      "tokenIdNamespace": {
+        "start": "300000000000",
+        "endExclusive": "400000000000"
+      },
+      "economics": {
+        "curveScaler": "247651723526",
+        "terminalReserve": "37212982989930463546",
+        "targetReserve": "37212982989930463546",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "12390560374022770",
+        "startingPrice": "205353611870436285738407313943790",
+        "invertedStartingPrice": "30567281861821312092306274",
+        "capturedAt": "2026-09-10T15:50:26.856Z"
+      }
     },
     "AAPL": {
       "enabled": true,
-      "curveScaler": "662723596814",
-      "graduationTarget": "13.906037780004434015",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x39CAb5AeB881ED8349DBe175393a85A3f38DAAA2",
+      "pairToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "priceHelper": "0xe4AcEd9c5e86FfF0705a261ca3D454AC8f400beA",
+      "tokenIdNamespace": {
+        "start": "400000000000",
+        "endExclusive": "500000000000"
+      },
+      "economics": {
+        "curveScaler": "662723596814",
+        "terminalReserve": "13906037780010605277",
+        "targetReserve": "13906037780010605277",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "4630201258603031",
+        "startingPrice": "335929300486224819596804563749280",
+        "invertedStartingPrice": "18685782175895909336683685",
+        "capturedAt": "2026-09-10T15:52:33.129Z"
+      }
     },
     "META": {
       "enabled": true,
-      "curveScaler": "1287397251933",
-      "graduationTarget": "7.158520309998011892",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x86991083946269c51Fe258b2Fd80b01b5685333E",
+      "pairToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "priceHelper": "0xa5e155E39c60d6841A924C989F250daDc5600cD3",
+      "tokenIdNamespace": {
+        "start": "500000000000",
+        "endExclusive": "600000000000"
+      },
+      "economics": {
+        "curveScaler": "1287397251933",
+        "terminalReserve": "7158520309999559376",
+        "targetReserve": "7158520309999559376",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "2383525075471037",
+        "startingPrice": "468207059240146328396142253778663",
+        "invertedStartingPrice": "13406678971423017423713773",
+        "capturedAt": "2026-09-10T15:54:17.382Z"
+      }
     },
     "TSLA": {
       "enabled": true,
-      "curveScaler": "773334366213",
-      "graduationTarget": "11.917043619997560025",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x2eaDc658bA72a7857EA179550B157D95a1dB2577",
+      "pairToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "priceHelper": "0xb24b67C9B258723B694F13436062b8C8f94f5D8c",
+      "tokenIdNamespace": {
+        "start": "600000000000",
+        "endExclusive": "700000000000"
+      },
+      "economics": {
+        "curveScaler": "773334366213",
+        "terminalReserve": "11917043619993049306",
+        "targetReserve": "11917043619993049306",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "3967939052163450",
+        "startingPrice": "362881914029403223331899233185138",
+        "invertedStartingPrice": "17297918393579863575489168",
+        "capturedAt": "2026-09-10T15:56:27.919Z"
+      }
     },
     "GOOGL": {
       "enabled": true,
-      "curveScaler": "711636182314",
-      "graduationTarget": "12.95024003000610569",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0xA4481587FD0BF5BA1c0948A65e49A6558109E5AE",
+      "pairToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "priceHelper": "0x5b429E387e262972B4c13061B6A359b869a894c7",
+      "tokenIdNamespace": {
+        "start": "700000000000",
+        "endExclusive": "800000000000"
+      },
+      "economics": {
+        "curveScaler": "711636182314",
+        "terminalReserve": "12950240030001207318",
+        "targetReserve": "12950240030001207318",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "4311955614874398",
+        "startingPrice": "348105334838638244735987157039768",
+        "invertedStartingPrice": "18032190567537227446022257",
+        "capturedAt": "2026-09-10T15:59:16.137Z"
+      }
     },
-    "GME": {
+    "ARENA": {
       "enabled": true,
-      "curveScaler": "64048060738",
-      "graduationTarget": "143.889748866525550739",
-      "nativePoolFee": 50000,
-      "nativePoolTickSpacing": 1000
+      "kind": "prism",
+      "manager": "0x1ed84696a221D767249A0d26B6FEb02C645de0d5",
+      "pairToken": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
+      "priceHelper": "0x0b0E3668457418167CC612811E4bEFd50E187690",
+      "tokenIdNamespace": {
+        "start": "800000000000",
+        "endExclusive": "900000000000"
+      },
+      "economics": {
+        "curveScaler": "2530914",
+        "terminalReserve": "3641316684407293175508927",
+        "targetReserve": "3641316684407293175508927",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "1212425177241709209248",
+        "startingPrice": "656478281199293108875398941841",
+        "invertedStartingPrice": "9561781273128034600626084257",
+        "capturedAt": "2026-09-10T16:02:24.102Z"
+      }
+    },
+    "PACK": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x8a9B8FbC2d621e334af996623269c6C81E24ef8c",
+      "pairToken": "0x0145AcbcceFbEd6F303C420bEeaaAc72E905430b",
+      "priceHelper": "0x76FD5ccBe09Ec8F08893Fb7602097B458463fEcF",
+      "tokenIdNamespace": {
+        "start": "900000000000",
+        "endExclusive": "1000000000000"
+      },
+      "economics": {
+        "curveScaler": "2408411",
+        "terminalReserve": "3826531009449799058383308",
+        "targetReserve": "3826531009449799058383308",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "623526905778869575737",
+        "startingPrice": "640393580132790679613592148880",
+        "invertedStartingPrice": "9801943570522793210344156962",
+        "capturedAt": "2026-09-10T16:05:00.054Z"
+      }
     },
     "THROBBIN": {
       "enabled": true,
-      "curveScaler": "1447301",
-      "graduationTarget": "6367617.637934334",
-      "nativePoolEnabled": false,
-      "nativePoolFee": 0,
-      "nativePoolTickSpacing": 0,
-      "operationalWarning": "Frontend marks this pair enabled, but the production manager is paused, unregistered, and LP-disabled."
+      "kind": "prism",
+      "manager": "0x07478206AF95faD0dC2F99627C3AbbbCa82A74D5",
+      "pairToken": "0xe8fB470E0685437d7739BD2AacBA60b228800335",
+      "priceHelper": "0x8e5A509d3cA2261700A7a9421A2b252CB867b942",
+      "tokenIdNamespace": {
+        "start": "1000000000000",
+        "endExclusive": "1100000000000"
+      },
+      "economics": {
+        "curveScaler": "780686",
+        "terminalReserve": "11804822137197285464322404",
+        "targetReserve": "11804822137197285464322404",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "6580000240327894640251",
+        "startingPrice": "364602686294252438375891469119",
+        "invertedStartingPrice": "17216279449791953962658837356",
+        "capturedAt": "2026-09-10T16:08:40.247Z"
+      }
+    },
+    "GME": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0xB10A1c88589c4C5bbbbd148fA9c9aC74dB9275e1",
+      "pairToken": "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+      "priceHelper": "0x69A6830139bd26b9fbdB652576D67335311c77E3",
+      "tokenIdNamespace": {
+        "start": "1100000000000",
+        "endExclusive": "1200000000000"
+      },
+      "economics": {
+        "curveScaler": "64048060738",
+        "terminalReserve": "143889748866856628230",
+        "targetReserve": "143889748866856628230",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "47910016270763225",
+        "startingPrice": "104432256195358133043655515276302",
+        "invertedStartingPrice": "60106924470197256069446977",
+        "capturedAt": "2026-09-10T16:11:01.131Z"
+      }
+    },
+    "SPY": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x7CFF546D83059Dbb5111b06109dA7F2e1bC69748",
+      "pairToken": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+      "priceHelper": "0x81Aa9B2a25087C7930E585499cbdB7F12071De63",
+      "tokenIdNamespace": {
+        "start": "1300000000000",
+        "endExclusive": "1400000000000"
+      },
+      "economics": {
+        "curveScaler": "1405197374063",
+        "terminalReserve": "6558409192263990255",
+        "targetReserve": "6558409192266323880",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "131168183845326",
+        "referencePriceUsdE6": "762380000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "489159320724127696726077574285554",
+        "invertedStartingPrice": "12832427942074913904814738",
+        "capturedAt": "2026-09-09T16:46:05.187Z"
+      }
+    },
+    "AMD": {
+      "enabled": false,
+      "kind": "prism",
+      "manager": "0x9644221c99c6146741d00865b36854e7b82ADA2D",
+      "pairToken": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+      "priceHelper": "0x580f33176aB0A9d634f6d4649a628F9acA06E609",
+      "tokenIdNamespace": {
+        "start": "1500000000000",
+        "endExclusive": "1600000000000"
+      },
+      "economics": {
+        "curveScaler": "964467331172",
+        "terminalReserve": "9555387805412844303",
+        "targetReserve": "9555387805414082731",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "191107756108282",
+        "referencePriceUsdE6": "523265000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "405252244877652541387501163906253",
+        "invertedStartingPrice": "15489369435280403566308344",
+        "capturedAt": "2026-09-09T16:48:13.221Z"
+      }
+    },
+    "AMZN": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x8B1870829baB552EBA5528E5f38F76260218EA9c",
+      "pairToken": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "priceHelper": "0x0c22b545e177be29E0Be5cE2bBDbE812EBd918D6",
+      "tokenIdNamespace": {
+        "start": "1600000000000",
+        "endExclusive": "1700000000000"
+      },
+      "economics": {
+        "curveScaler": "463428704531",
+        "terminalReserve": "19886250646313873789",
+        "targetReserve": "19886250646303146005",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "397725012926063",
+        "referencePriceUsdE6": "251430000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "280913838153927702245984875477445",
+        "invertedStartingPrice": "22345291982188222827961673",
+        "capturedAt": "2026-09-09T16:50:29.944Z"
+      }
+    },
+    "MSFT": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x3f61929D61bA1f905D862E945E11c4C20fFbf5E6",
+      "pairToken": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "priceHelper": "0x3eD9c358252Fb15407760936f6c458AB34e4FCD8",
+      "tokenIdNamespace": {
+        "start": "1700000000000",
+        "endExclusive": "1800000000000"
+      },
+      "economics": {
+        "curveScaler": "907246060313",
+        "terminalReserve": "10158059404325798237",
+        "targetReserve": "10158059404331396530",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "203161188086628",
+        "referencePriceUsdE6": "492220000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "393046753974239991066342655330855",
+        "invertedStartingPrice": "15970369102191027418030872",
+        "capturedAt": "2026-09-09T16:52:28.535Z"
+      }
+    },
+    "MU": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x643c95865CA3713fc76D5d810C209C031f747830",
+      "pairToken": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD",
+      "priceHelper": "0x0e339bDE02cf367E25c5199FF3338F8c8c21Fb76",
+      "tokenIdNamespace": {
+        "start": "2000000000000",
+        "endExclusive": "2100000000000"
+      },
+      "economics": {
+        "curveScaler": "1882811915790",
+        "terminalReserve": "4894731809222251428",
+        "targetReserve": "4894731809222972566",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "97894636184459",
+        "referencePriceUsdE6": "1021430000",
+        "multiplierE18": "1000074823219171086",
+        "startingPrice": "566219911502031930349307409345011",
+        "invertedStartingPrice": "11085978447376015366031150",
+        "capturedAt": "2026-09-09T16:54:44.087Z"
+      }
+    },
+    "PLTR": {
+      "enabled": false,
+      "kind": "prism",
+      "manager": "0xCe761bCDb7b1a8E05c45db9620a100b059ca1F78",
+      "pairToken": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "priceHelper": "0x182e3b626C91374C148b18C9EB903De25409e566",
+      "tokenIdNamespace": {
+        "start": "2100000000000",
+        "endExclusive": "2200000000000"
+      },
+      "economics": {
+        "curveScaler": "314721597656",
+        "terminalReserve": "29282576866787535955",
+        "targetReserve": "29282576866764275256",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "585651537335286",
+        "referencePriceUsdE6": "170750000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "231496773337818289883034865958823",
+        "invertedStartingPrice": "27115288238711821962842623",
+        "capturedAt": "2026-09-09T16:57:07.132Z"
+      }
+    },
+    "COST": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x897420b8F4d972d22bb2751A37B69C7683E816b8",
+      "pairToken": "0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2",
+      "priceHelper": "0xd89e8411E170B6948EB0741504880E304a96Ebd2",
+      "tokenIdNamespace": {
+        "start": "2400000000000",
+        "endExclusive": "2500000000000"
+      },
+      "economics": {
+        "curveScaler": "1657536933952",
+        "terminalReserve": "5559972261388462472",
+        "targetReserve": "5559972261389278346",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "111199445227786",
+        "referencePriceUsdE6": "898735000",
+        "multiplierE18": "1000612040296259656",
+        "startingPrice": "531267532581851919721239704606667",
+        "invertedStartingPrice": "11815330978125551538639113",
+        "capturedAt": "2026-09-09T16:59:13.000Z"
+      }
+    },
+    "QQQ": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0xD67DaC287F35d74b1aefE2651B3e8eDc9A61592b",
+      "pairToken": "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68",
+      "priceHelper": "0x84F22A660CA140D7572918AEc183160FeEF39264",
+      "tokenIdNamespace": {
+        "start": "2700000000000",
+        "endExclusive": "2800000000000"
+      },
+      "economics": {
+        "curveScaler": "1320070481016",
+        "terminalReserve": "6981338881168647675",
+        "targetReserve": "6981338881170630904",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "139626777623413",
+        "referencePriceUsdE6": "716195000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "474111214662580035478159459050570",
+        "invertedStartingPrice": "13239724227687860206009216",
+        "capturedAt": "2026-09-09T17:01:05.013Z"
+      }
+    },
+    "GLD": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0xF9E95D009B64c78A4f84E39a85c2FCa1238B0Cf9",
+      "pairToken": "0xC9a981FEE1F9DEc688bb123ccDeCc63D0deBFC4e",
+      "priceHelper": "0x4c664de27f56430977D083a91983BD9e7676F91b",
+      "tokenIdNamespace": {
+        "start": "3100000000000",
+        "endExclusive": "3200000000000"
+      },
+      "economics": {
+        "curveScaler": "744945560859",
+        "terminalReserve": "12371185035820808241",
+        "targetReserve": "12371185035814580679",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "247423700716292",
+        "referencePriceUsdE6": "404165000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "356159011038698888320401768958535",
+        "invertedStartingPrice": "17624436110938758977709858",
+        "capturedAt": "2026-09-09T17:02:56.107Z"
+      }
+    },
+    "LLY": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x3B2993c8A2c3B5Ee0Dbc5c761a263A60ECeDEB0c",
+      "pairToken": "0x8005d266423c7ea827372c9c864491e5786600ea",
+      "priceHelper": "0x65954785fdb7f5219CE363f4bBd34622F4036306",
+      "tokenIdNamespace": {
+        "start": "3200000000000",
+        "endExclusive": "3300000000000"
+      },
+      "economics": {
+        "curveScaler": "2073024623672",
+        "terminalReserve": "4445610182225293307",
+        "targetReserve": "4445610182225561369",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "88912203644511",
+        "referencePriceUsdE6": "1124705000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "594133306055909580970409380796251",
+        "invertedStartingPrice": "10565140300005312607014337",
+        "capturedAt": "2026-09-09T17:05:04.373Z"
+      }
+    },
+    "TSM": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0xbc0A2a94CD5D8ECD696efD6efb0240EDbAbCf850",
+      "pairToken": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA",
+      "priceHelper": "0x2e480Eb0381169709186df2D3e68E54aAb86Ef58",
+      "tokenIdNamespace": {
+        "start": "3400000000000",
+        "endExclusive": "3500000000000"
+      },
+      "economics": {
+        "curveScaler": "800544840469",
+        "terminalReserve": "11511983975314711311",
+        "targetReserve": "11511983975318306357",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "230239679506366",
+        "referencePriceUsdE6": "434330000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "369210888025485270588022481291157",
+        "invertedStartingPrice": "17001399305844402676855313",
+        "capturedAt": "2026-09-09T17:06:41.703Z"
+      }
+    },
+    "SKHY": {
+      "enabled": false,
+      "kind": "prism",
+      "manager": "0xCd8De3f8D687a857309B8ff79D09e6d99636aBAa",
+      "pairToken": "0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8",
+      "priceHelper": "0x7B723bAD1DcC0eEb6C6a9c10463fadDEf96d19A9",
+      "tokenIdNamespace": {
+        "start": "3600000000000",
+        "endExclusive": "3700000000000"
+      },
+      "economics": {
+        "curveScaler": "357252788672",
+        "terminalReserve": "25796465884164842196",
+        "targetReserve": "25796465884173868180",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "515929317683477",
+        "referencePriceUsdE6": "193825000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "246643390734654503402998625520409",
+        "invertedStartingPrice": "25450111258565015326880009",
+        "capturedAt": "2026-09-09T17:08:32.252Z"
+      }
+    },
+    "USO": {
+      "enabled": false,
+      "kind": "prism",
+      "manager": "0x16f9086F4A9C4829c58C5ed7837771005e958644",
+      "pairToken": "0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344",
+      "priceHelper": "0x8418686B47D80348a9d83518B830322EE0c8c01C",
+      "tokenIdNamespace": {
+        "start": "3800000000000",
+        "endExclusive": "3900000000000"
+      },
+      "economics": {
+        "curveScaler": "273876908906",
+        "terminalReserve": "33649639948883263303",
+        "targetReserve": "33649639948852547278",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "672992798977051",
+        "referencePriceUsdE6": "148590000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "215953067454511455393844822065117",
+        "invertedStartingPrice": "29066971862804843047588777",
+        "capturedAt": "2026-09-09T17:10:30.271Z"
+      }
+    },
+    "JNJ": {
+      "enabled": false,
+      "kind": "prism",
+      "manager": "0x235F704c412E5671304DFeD424dbc6945C21475c",
+      "pairToken": "0x03DfbBE0AC4E7bCDaFd08eD41A400326B77D8c80",
+      "priceHelper": "0x93B36685dA417781f84f94D46E827580f5CF6B18",
+      "tokenIdNamespace": {
+        "start": "4500000000000",
+        "endExclusive": "4600000000000"
+      },
+      "economics": {
+        "curveScaler": "492165114745",
+        "terminalReserve": "18725137355123005875",
+        "targetReserve": "18725137355113393177",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "374502747102268",
+        "referencePriceUsdE6": "267015000",
+        "multiplierE18": "1000021490286701962",
+        "startingPrice": "289492343536061738350987654268055",
+        "invertedStartingPrice": "21683135583876846821619075",
+        "capturedAt": "2026-09-09T17:12:24.145Z"
+      }
+    },
+    "SLV": {
+      "enabled": true,
+      "kind": "prism",
+      "manager": "0x93CD6aA4b04269CDfB749f667020E8b19E0A8AF4",
+      "pairToken": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+      "priceHelper": "0xd5f5FBc1553785eB880d3B1AA0685EB4a65005cA",
+      "tokenIdNamespace": {
+        "start": "5400000000000",
+        "endExclusive": "5500000000000"
+      },
+      "economics": {
+        "curveScaler": "112534858828",
+        "terminalReserve": "81893374826067542948",
+        "targetReserve": "81893374825976578495",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "1637867496519532",
+        "referencePriceUsdE6": "61055000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "138428401430777220099010353000253",
+        "invertedStartingPrice": "45345475859775933761560471",
+        "capturedAt": "2026-09-09T17:14:04.559Z"
+      }
     }
   }
 }

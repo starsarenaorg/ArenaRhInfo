@@ -1,0 +1,95 @@
+{
+  "source": "../starsarena-frontend-react/src/environments/ROBINHOOD_LAUNCHPAD.ts",
+  "environmentSelection": "NEXT_PUBLIC_APP_ENV === \"production\"",
+  "chainId": 4663,
+  "launchEconomics": {
+    "curveA": "65535",
+    "curveB": "0",
+    "creatorFeeBasisPoints": "0",
+    "tokenSplitPercent": "75",
+    "totalSupplyWei": "1000000000000000000000000000"
+  },
+  "pairs": {
+    "NATIVE": {
+      "enabled": true,
+      "curveScaler": "3938401442307",
+      "graduationTarget": "2.340000000000203764"
+    },
+    "ARENA": {
+      "enabled": true,
+      "curveScaler": "2530914",
+      "graduationTarget": "3641316.948982599991773046",
+      "nativePool": {
+        "enabled": true,
+        "fee": 2500,
+        "tickSpacing": 60,
+        "hooks": "0x99d4C5Cf21d8F00b627AFe2Bf1eE2840f886e044"
+      }
+    },
+    "NVDA": {
+      "enabled": true,
+      "curveScaler": "438147116820",
+      "graduationTarget": "21.033709959998676681",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "SPCX": {
+      "enabled": true,
+      "curveScaler": "247651723526",
+      "graduationTarget": "37.212982989981717726",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "AAPL": {
+      "enabled": true,
+      "curveScaler": "662723596814",
+      "graduationTarget": "13.906037780004434015",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "META": {
+      "enabled": true,
+      "curveScaler": "1287397251933",
+      "graduationTarget": "7.158520309998011892",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "TSLA": {
+      "enabled": true,
+      "curveScaler": "773334366213",
+      "graduationTarget": "11.917043619997560025",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "GOOGL": {
+      "enabled": true,
+      "curveScaler": "711636182314",
+      "graduationTarget": "12.95024003000610569",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "GME": {
+      "enabled": true,
+      "curveScaler": "64048060738",
+      "graduationTarget": "143.889748866525550739",
+      "nativePoolFee": 50000,
+      "nativePoolTickSpacing": 1000
+    },
+    "THROBBIN": {
+      "enabled": true,
+      "curveScaler": "780686",
+      "graduationTarget": "11804822.137197285464322404",
+      "nativePoolEnabled": false,
+      "nativePoolFee": 0,
+      "nativePoolTickSpacing": 0
+    },
+    "PACK": {
+      "enabled": true,
+      "curveScaler": "2408411",
+      "graduationTarget": "3826531.009449799058383308",
+      "nativePoolEnabled": true,
+      "nativePoolFee": 25000,
+      "nativePoolTickSpacing": 250
+    }
+  }
+}

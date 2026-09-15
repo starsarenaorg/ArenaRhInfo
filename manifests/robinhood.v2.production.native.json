@@ -1,0 +1,227 @@
+{
+  "mode": "robinhood-v2-production-native",
+  "chainId": 4663,
+  "productionDeployer": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "productionSafe": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+  "contracts": {
+    "lpVault": {
+      "address": "0x7d4A72C6EF99E935c1e723b8eD6e38Ac51C8190b",
+      "transaction": "0xe2dbfc4af2bae24fa7b3e9d63e4a0a908db11ec5e0cc5d86b971bad2e96e4e87",
+      "blockNumber": 57859824,
+      "constructorArguments": [
+        "172800",
+        [
+          "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1"
+        ],
+        [
+          "0x0000000000000000000000000000000000000000"
+        ],
+        [
+          "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B"
+        ],
+        "0x58daec3116aae6D93017bAAea7749052E8a04fA7"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodTimelockedLpVault.sol",
+      "contract": "RobinhoodTimelockedLpVault",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "sourceHash": "0x964046a78d4dc72cdd436d032936ca8cff565850a61fb291ed7ce0db4fec5404",
+      "runtimeBytes": 9115,
+      "gasUsed": "2251583"
+    },
+    "controller": {
+      "address": "0xa8F6Cb031C5f0f923909842D4435687e250559bC",
+      "transaction": "0xb17e90576516de8003c5f87ecacfb4039999853103f703bc7fa9995622675dbb",
+      "blockNumber": 57859892,
+      "constructorArguments": [
+        "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+        "0x0000000000000000000000000000000000000000"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodDividendController.sol",
+      "contract": "RobinhoodDividendController",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "sourceHash": "0x5fc912e64045049808e7368b7a938338c8e24878b8471c5edaf100b6fd80c480",
+      "runtimeBytes": 6127,
+      "gasUsed": "1435727"
+    },
+    "processorProxy": {
+      "address": "0x69AeE265043ab8Fa5AcEB721537bb9aED5B4b7A9",
+      "transaction": "0x21308f0e07f9f9e100ca629f8a31bca8149caf77f92267e9f4b1fd91fa4324b1",
+      "blockNumber": 57859960,
+      "constructorArguments": [
+        "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7",
+        "0x485cc9550000000000000000000000000c6acd89b5ffec5d2a5505aa5e7a3aefc4e1cff1000000000000000000000000a8f6cb031c5f0f923909842d4435687e250559bc"
+      ],
+      "source": "contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "contract": "RobinhoodTokenManagerProxy",
+      "compiler": "0.8.26+commit.8a97fa7a.Emscripten.clang",
+      "sourceHash": "0x96c8e8a54eaf4b37b1fbebf079c0d6eb4787e9d7fdeeca549e09c3ccccd8513f",
+      "runtimeBytes": 130,
+      "gasUsed": "215320"
+    },
+    "tokenFactory": {
+      "address": "0x3d1170c9ea8Bb49A58bAAf3378C7c97E59Bb2800",
+      "transaction": "0x3223561bfdd270984cb24c592b7982ccf4fd7af28fc8ace1f8ffc355e5291a60",
+      "blockNumber": 57859988,
+      "constructorArguments": [
+        "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+        "0xa8F6Cb031C5f0f923909842D4435687e250559bC",
+        "0xa4555952075BDFD473521f3d754d13442EE3e0Cc"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodMixedFeeLaunchTokenFactory.sol",
+      "contract": "RobinhoodMixedFeeLaunchTokenFactory",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "sourceHash": "0x0c70971e022d94ac0ebf66c0e3fd97fb4d6f95415f1321512993ffb0ed245dac",
+      "runtimeBytes": 10741,
+      "gasUsed": "2373345"
+    },
+    "poolDeployer": {
+      "address": "0x4B400e1AcC76729BE6A86C3fC73Ab2b8d80B78EF",
+      "transaction": "0x279b4955ae0e6971549f055dd1e9e1cb14e2080f4a4703524b368d4b51c64737",
+      "blockNumber": 57860055,
+      "constructorArguments": [
+        "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+        "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+        "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+        "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+        "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodDividendFeePoolDeployer.sol",
+      "contract": "RobinhoodDividendFeePoolDeployer",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "sourceHash": "0xaceda2bf42fbce623e0e93f136066ebc3bde2a07df30f4e4be8a83cc658431c8",
+      "runtimeBytes": 7765,
+      "gasUsed": "1782944"
+    },
+    "nativeManagerProxy": {
+      "address": "0x6ebD9d6a8bc4E879e8731E22e914Dc20d96878f8",
+      "transaction": "0x622950c51525a46c9e96f663579bfd1f23456961a8f06a35d28917638ed33996",
+      "blockNumber": 57860085,
+      "constructorArguments": [
+        "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+        "0x95b6ef0c0000000000000000000000004d8e431f3d93b57e3cdd3fa9cc4e6d248678933b0000000000000000000000003d1170c9ea8bb49a58baaf3378c7c97e59bb2800000000000000000000000000a8f6cb031c5f0f923909842d4435687e250559bc000000000000000000000000b28dd2fc871ba2960a4c84b81a13facca87051bb0000000000000000000000004b400e1acc76729be6a86c3fc73ab2b8d80b78ef0000000000000000000000000000000000000000000000000000000ba43b7400"
+      ],
+      "source": "contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "contract": "RobinhoodTokenManagerProxy",
+      "compiler": "0.8.26+commit.8a97fa7a.Emscripten.clang",
+      "sourceHash": "0x96c8e8a54eaf4b37b1fbebf079c0d6eb4787e9d7fdeeca549e09c3ccccd8513f",
+      "runtimeBytes": 130,
+      "gasUsed": "334760"
+    },
+    "nativePriceHelper": {
+      "address": "0xe9F2EF2A806f8209e4B2611303785e35CfBFeBc1",
+      "transaction": "0x6aaa1bd19ffffb13fe15b691badaec0dd83432a699974e98e14803ba0c54c41c",
+      "blockNumber": 57860110,
+      "constructorArguments": [
+        "0x6ebD9d6a8bc4E879e8731E22e914Dc20d96878f8"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativePriceHelper.sol",
+      "contract": "RobinhoodV2NativePriceHelper",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "sourceHash": "0x5a1c6eae4a52b1cd36091e6c4b58e065f800c748c387fa8fba6a64b4a27999a2",
+      "runtimeBytes": 1791,
+      "gasUsed": "444268"
+    },
+    "nativeQuoter": {
+      "address": "0x7A95e5018a55a9f4C499bB28f004228AfB3809a7",
+      "transaction": "0x64e8d991a9c29d10ebf5efb1e157aa5ef9fe5075b8efb3bfe13eb9ce95451a0d",
+      "blockNumber": 57860135,
+      "constructorArguments": [
+        "0x6ebD9d6a8bc4E879e8731E22e914Dc20d96878f8",
+        "0xe9F2EF2A806f8209e4B2611303785e35CfBFeBc1"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativeQuoter.sol",
+      "contract": "RobinhoodV2NativeQuoter",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "sourceHash": "0xcd572ac18fbf19b76459a479113cf9557eaff88966d5b0276de4bb43e577f85e",
+      "runtimeBytes": 6717,
+      "gasUsed": "1515926"
+    },
+    "nativeBuyer": {
+      "address": "0x4894d5501606E4b5aAcF7Ac6966B0F7A73a184E2",
+      "transaction": "0xa709553e4e0f4127353c6ca3dbea229076cde14bb9f402ccfe49fc9b83c10329",
+      "blockNumber": 57860161,
+      "constructorArguments": [
+        "0x6ebD9d6a8bc4E879e8731E22e914Dc20d96878f8",
+        "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativeBuyer.sol",
+      "contract": "RobinhoodV2NativeBuyer",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "sourceHash": "0xd0e53a04887eefec916b8c1ee6fbe1a3d87273eb666e9d3892fb380f423a65ec",
+      "runtimeBytes": 10471,
+      "gasUsed": "2360767"
+    }
+  },
+  "transactions": {
+    "deploy:lpVault": "0xe2dbfc4af2bae24fa7b3e9d63e4a0a908db11ec5e0cc5d86b971bad2e96e4e87",
+    "deploy:controller": "0xb17e90576516de8003c5f87ecacfb4039999853103f703bc7fa9995622675dbb",
+    "deploy:processorProxy": "0x21308f0e07f9f9e100ca629f8a31bca8149caf77f92267e9f4b1fd91fa4324b1",
+    "deploy:tokenFactory": "0x3223561bfdd270984cb24c592b7982ccf4fd7af28fc8ace1f8ffc355e5291a60",
+    "deploy:poolDeployer": "0x279b4955ae0e6971549f055dd1e9e1cb14e2080f4a4703524b368d4b51c64737",
+    "deploy:nativeManagerProxy": "0x622950c51525a46c9e96f663579bfd1f23456961a8f06a35d28917638ed33996",
+    "deploy:nativePriceHelper": "0x6aaa1bd19ffffb13fe15b691badaec0dd83432a699974e98e14803ba0c54c41c",
+    "deploy:nativeQuoter": "0x64e8d991a9c29d10ebf5efb1e157aa5ef9fe5075b8efb3bfe13eb9ce95451a0d",
+    "deploy:nativeBuyer": "0xa709553e4e0f4127353c6ca3dbea229076cde14bb9f402ccfe49fc9b83c10329",
+    "controller:set-default-processor": "0x1f0c2f939d971c200d99e6cdc7ff3a93b3ab78c56c01b852463870f21d984cc6",
+    "controller:authorize-manager": "0x26e994a4207f810b37487c3531178d76ea136500a02374e8421ba4c260454f43",
+    "controller:authorize-pool-deployer": "0x222d92ba8dfe55305fa1075c834f9b68932068337a24bd7f3d9984e8eceb5850",
+    "fee-helper:authorize-manager": "0xd74029542c64f69f0159a3e88b151a9063b7d22b5f9b190ed1cee3c02d3356a8",
+    "fee-helper:authorize-pool-deployer": "0x2c9b9bfd08c465a174632f207da42f6fb8cada6e6cfb72586c56cb480dc75c34",
+    "hook:authorize-pool-deployer": "0xf347ced2e258183d86bb96b454738fb73313ea2ab4cca0d00ead4af0db06f9eb",
+    "pool-deployer:authorize-manager": "0x9858f7c7b9218b82126c76b1c7b7afa29f896fcd63f2df2841902d440ba17275",
+    "manager:set-lp-vault": "0x1472164c0815088993c6c88418ec021f39513549a880f8dafe894d110141c2c1",
+    "manager:set-referral-registry": "0xae747b1dbc088cc6ebdc37f19825b98909f0f11c281b9d6da1908816d991043a",
+    "manager:set-fee-destination": "0x39b44b913bdaaf1b969514de981018639b865e68fc659ceed701a9f49de873a0",
+    "manager:set-protocol-fee": "0x8ea0c8d69b7942fe92b5abb805e4e7dc2c48cb768631d671609cee9f88a67189",
+    "manager:set-creation-fee": "0x5c179fec41619a81d2a6e5c623b35ac4162d36f7c18e745f922ba792b672309c",
+    "manager:set-production-curve": "0x7840299d643d5778489cd9bfb8ccf0eb498eb80c61fa24a36303fd8eb5e683d6",
+    "manager:set-production-pool": "0x35d2db748f302db407f019278a91476ec32f20cdc6665821ea0ddbc07c3fe69b",
+    "manager:enable-lp": "0xc60415804d1321fe414ef12a533a76705174d905468823fc8e388475b414ccd5",
+    "manager:unpause": "0x8434dc5707fcb58e289fb182b9e0e2d2d1b76c97b0cca863070b4cae12677bb6",
+    "manager:transfer-ownership": "0x4828765b14048424167cc186d3f26560c8376de7bf4e2aae8c982c497171989e",
+    "controller:transfer-ownership": "0xa2c319c1acd110d98c68b4a9fc6f3f4eedca98530370967d44062c7869308ceb",
+    "fee-helper:transfer-ownership": "0xa4dbce28588ac177f8b111e8b718185a30014bea8914ae849298ab81ae9fa169",
+    "hook:transfer-ownership": "0x975d83fe2c7ca6944716eca9fb94c53a0f9ecd665585a852500fc18b996ed3a0",
+    "pool-deployer:transfer-ownership": "0x5bc0bad5f61d07405217c868d88775440370184e44784bbfd764eb245306fa34"
+  },
+  "configuration": {
+    "verificationBlock": 57861750,
+    "onchainReadback": "passed",
+    "managerOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "controllerPendingOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "feeHelperPendingOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "hookPendingOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "poolDeployerPendingOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "managerPaused": false,
+    "canDeployLp": true,
+    "initialTokenId": "50000000000",
+    "terminalReserve": "2340000000000411335",
+    "timelockDelaySeconds": "172800",
+    "independentVerificationBlock": 57865178
+  },
+  "reused": {
+    "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+    "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "positionManager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+    "universalRouter": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "referralRegistry": "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
+    "productionFeeHelper": "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+    "productionHook": "0xa4555952075BDFD473521f3d754d13442EE3e0Cc",
+    "managerImplementation": "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+    "processorImplementation": "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7"
+  },
+  "economics": {
+    "initialTokenId": "50000000000",
+    "curveA": "65535",
+    "curveB": "0",
+    "curveScaler": "3938401442307",
+    "totalSupply": "1000000000000000000000000000",
+    "tokenSplit": "75",
+    "terminalReserve": "2340000000000411335",
+    "creationFee": "800000000000000"
+  },
+  "updatedAt": "2026-09-08T17:25:28.000Z",
+  "status": "production-native-v2-live-pending-safe-two-step-acceptance"
+}

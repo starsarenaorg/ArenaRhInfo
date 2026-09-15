@@ -1,0 +1,82 @@
+{
+  "mode": "robinhood-v2-shared",
+  "chainId": 4663,
+  "reused": {
+    "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+  },
+  "contracts": {
+    "hookFactory": {
+      "address": "0xdc99879067dF21a1FacB03BB94034E4A30FCB2a1",
+      "transaction": "0xf7e736d91f94428fbc6f8e3753adf1bf2005eb2ad321fc69349851ab1e5d5c7b",
+      "blockNumber": 53256233,
+      "constructorArguments": [],
+      "source": "contractsV2/contracts/robinhood/RobinhoodDividendFeeHookFactory.sol",
+      "contract": "RobinhoodDividendFeeHookFactory",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": false,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0xacd29ddfcb6505c655cf6869e9095eb6327ab90e392d8a2819b9f6087a7a338b",
+      "creationBytecodeHash": "0x5cfa6705663c5ec954a51249f76d2bb8a0d920dcfaf4f7172b7b1bc85706007b",
+      "runtimeBytes": 8593,
+      "gasUsed": "1907920"
+    },
+    "managerImplementation": {
+      "address": "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+      "transaction": "0x5ab8ecec3427ea67e0612524dd9722744351689ac64d8e4e7a4ad9c7d34b827f",
+      "blockNumber": 53256299,
+      "constructorArguments": [
+        "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodNativePairTokenManagerV2.sol",
+      "contract": "RobinhoodNativePairTokenManagerV2",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0xe40d892f61a41f19b73467eec49ad3ac2d27b184bd9fe339a2b0416e5da1230d",
+      "creationBytecodeHash": "0xfe49f5cae4a860b62c19c8b68fe00947adb94669c0e67b0558d4f7a66237ddcb",
+      "runtimeBytes": 23984,
+      "gasUsed": "5266556"
+    },
+    "prismManagerImplementation": {
+      "address": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "transaction": "0xbaa04a4bcf155f315d225dd40bf4181af6268f693aa900cb1a8b5d03f820f968",
+      "blockNumber": 55157031,
+      "constructorArguments": [],
+      "source": "contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "contract": "RobinhoodPrismTokenManagerV2",
+      "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0xf9a9171529819a637c25c662aac3225544d640f9cd8b12ba622177a5d6e8877a",
+      "creationBytecodeHash": "0xce8c1ceaee7da5742087136d65e2af050de2de4bec617c8ecba54b8b1ef79333",
+      "runtimeBytes": 24247,
+      "gasUsed": "5321980"
+    }
+  },
+  "transactions": {
+    "deploy:hookFactory": "0xf7e736d91f94428fbc6f8e3753adf1bf2005eb2ad321fc69349851ab1e5d5c7b",
+    "deploy:managerImplementation": "0x5ab8ecec3427ea67e0612524dd9722744351689ac64d8e4e7a4ad9c7d34b827f",
+    "deploy:prismManagerImplementation": "0xbaa04a4bcf155f315d225dd40bf4181af6268f693aa900cb1a8b5d03f820f968"
+  },
+  "deployer": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "updatedAt": "2026-09-05T13:29:13.030Z",
+  "status": "shared-v2-contracts-deployed"
+}

@@ -1,315 +1,1439 @@
 {
+  "schemaVersion": 2,
+  "stack": "Arena launchpad V2",
   "chain": {
     "name": "Robinhood Chain",
     "chainId": 4663,
     "rpc": "https://rpc.mainnet.chain.robinhood.com",
     "explorer": "https://robinhoodchain.blockscout.com"
   },
-  "verificationNote": "All 46 Arena launchpad, manager, proxy, helper, THROBBIN, and compounder deployments are source-verified. BridgedArenaOFT and the one-use ARENA/ETH launcher await source publication.",
-  "governance": {
-    "lpAndManagerSafe": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
-    "compounderAdmin": "0x53229a27dE1E4e263375351Db4492C1E4bf0Ed48",
-    "initialLaunchFeeRecipient": "0x160b4D8fe9D6fe1d10ABd5E18097676948d288A5",
-    "preBondFeeRecipient": "0x7C85Be2F4043201461EF98124Dd5d273B2f575fF",
-    "dexFeeRecipient": "0x5Ab2d4181aaE405Cf12DA8E6a0b7596c252F7679"
+  "snapshot": {
+    "sourceRepository": "../arenaFork",
+    "latestManifestUpdate": "2026-09-10T19:02:54.567Z",
+    "verificationSummary": {
+      "already-verified": 70
+    },
+    "note": "Fixed production infrastructure only. Per-launch token addresses are dynamic protocol output.",
+    "manifests": [
+      "manifests/robinhood.v2.shared.json",
+      "manifests/robinhood.v2.production.native.json",
+      "manifests/robinhood.v2.production.native-replacement.json",
+      "manifests/robinhood.v2.production.hook.json",
+      "manifests/robinhood.v2.production.prism.json",
+      "manifests/robinhood.v2.production.prism-core-replacement.json",
+      "manifests/robinhood.v2.production.prism-expansion.json",
+      "manifests/robinhood.v2.production.activation.json",
+      "manifests/robinhood.v2.production.operator-keeper.json",
+      "manifests/robinhood.v2.production.verification.json",
+      "manifests/robinhood.v2.staging.processor-proxy.json"
+    ],
+    "rolloutEvidence": [
+      "rollouts/open-production-prism-expansion-10.js"
+    ]
   },
-  "arenaContracts": [
-    {
-      "key": "referralRegistry",
+  "governance": {
+    "productionSafe": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "deploymentOperator": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+    "automationOperator": "0x3976207A5cb1E55ABC04c4a15048b3d59F0e3CCf",
+    "automationOperatorHasKeeperRole": false,
+    "automationKeeperStatus": "safe-schedule-required",
+    "minimumTimelockSeconds": "172800",
+    "feeRecipients": {
+      "creationFeeVault": "0x160b4D8fe9D6fe1d10ABd5E18097676948d288A5",
+      "preBondProtocolFee": "0x7C85Be2F4043201461EF98124Dd5d273B2f575fF",
+      "postBondProtocolFee": "0x5Ab2d4181aaE405Cf12DA8E6a0b7596c252F7679"
+    }
+  },
+  "launchPolicy": {
+    "totalSupplyWei": "1000000000000000000000000000",
+    "totalSupplyTokens": "1000000000",
+    "salePercentage": "75",
+    "lpPercentage": "25",
+    "curveA": "65535",
+    "curveB": "0",
+    "targetBondUsdE6": "5000000000",
+    "targetCreationFeeUsdE6": "100000",
+    "postBondProtocolFeePpm": "2500",
+    "referralFeePpm": "0"
+  },
+  "implementations": {
+    "nativeManager": {
+      "address": "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+      "contractName": "RobinhoodNativePairTokenManagerV2",
+      "role": "Implementation used by the current Native manager proxy.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodNativePairTokenManagerV2.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodNativePairTokenManagerV2.sol",
+      "abi": "abis/RobinhoodNativePairTokenManagerV2.json",
+      "verification": "verified",
+      "transaction": "0x5ab8ecec3427ea67e0612524dd9722744351689ac64d8e4e7a4ad9c7d34b827f",
+      "blockNumber": 53256299
+    },
+    "prismManager": {
+      "address": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "contractName": "RobinhoodPrismTokenManagerV2",
+      "role": "Implementation shared by all current Prism manager proxies.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "abi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "verification": "verified",
+      "transaction": "0xbaa04a4bcf155f315d225dd40bf4181af6268f693aa900cb1a8b5d03f820f968",
+      "blockNumber": 55157031
+    },
+    "dividendProcessor": {
+      "address": "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7",
+      "contractName": "RobinhoodDividendProcessor",
+      "role": "Implementation selected by the production dividend processor proxy.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+      "abi": "abis/RobinhoodDividendProcessor.json",
+      "verification": "verified",
+      "transaction": "0x64a1c75486e886565ef37ea3489324b272e2563764de86e0b6d22e5a40b96024",
+      "blockNumber": 56824693
+    },
+    "mixedHookFactory": {
+      "address": "0xd5bF02bfc316A5f4Ef000140E8067bAc98Bb24dC",
+      "contractName": "RobinhoodMixedFeeHookFactory",
+      "role": "CREATE2 factory used to deploy the current production mixed-fee hook.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodMixedFeeHookFactory.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodMixedFeeHookFactory.sol",
+      "abi": "abis/RobinhoodMixedFeeHookFactory.json",
+      "verification": "reused-deployment-not-in-production-verification-report"
+    },
+    "legacyDividendHookFactory": {
+      "address": "0xdc99879067dF21a1FacB03BB94034E4A30FCB2a1",
+      "contractName": "RobinhoodDividendFeeHookFactory",
+      "role": "Earlier V2 dividend-hook CREATE2 factory retained in the shared manifest; not the factory of the current mixed-fee hook.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendFeeHookFactory.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendFeeHookFactory.sol",
+      "abi": "abis/RobinhoodDividendFeeHookFactory.json",
+      "verification": "verified",
+      "transaction": "0xf7e736d91f94428fbc6f8e3753adf1bf2005eb2ad321fc69349851ab1e5d5c7b",
+      "blockNumber": 53256233
+    }
+  },
+  "coreContracts": {
+    "lpVault": {
+      "address": "0x7d4A72C6EF99E935c1e723b8eD6e38Ac51C8190b",
+      "contractName": "RobinhoodTimelockedLpVault",
+      "role": "48-hour timelocked custody and automation vault for Uniswap v4 LP NFTs.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodTimelockedLpVault.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodTimelockedLpVault.sol",
+      "abi": "abis/RobinhoodTimelockedLpVault.json",
+      "verification": "verified",
+      "transaction": "0xe2dbfc4af2bae24fa7b3e9d63e4a0a908db11ec5e0cc5d86b971bad2e96e4e87",
+      "blockNumber": 57859824
+    },
+    "dividendController": {
+      "address": "0xa8F6Cb031C5f0f923909842D4435687e250559bC",
+      "contractName": "RobinhoodDividendController",
+      "role": "Registers launch tokens and coordinates dividend accounting/distribution.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendController.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendController.sol",
+      "abi": "abis/RobinhoodDividendController.json",
+      "verification": "verified",
+      "transaction": "0xb17e90576516de8003c5f87ecacfb4039999853103f703bc7fa9995622675dbb",
+      "blockNumber": 57859892
+    },
+    "dividendProcessor": {
+      "address": "0x69AeE265043ab8Fa5AcEB721537bb9aED5B4b7A9",
+      "contractName": "RobinhoodDividendProcessor",
+      "role": "Upgradeable processor used for holder dividend distributions.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+      "abi": "abis/RobinhoodDividendProcessor.json",
+      "verification": "verified",
+      "transaction": "0x21308f0e07f9f9e100ca629f8a31bca8149caf77f92267e9f4b1fd91fa4324b1",
+      "blockNumber": 57859960,
+      "proxyContractName": "RobinhoodTokenManagerProxy",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "implementation": "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7",
+      "implementationVerification": "verified"
+    },
+    "tokenFactory": {
+      "address": "0x3d1170c9ea8Bb49A58bAAf3378C7c97E59Bb2800",
+      "contractName": "RobinhoodMixedFeeLaunchTokenFactory",
+      "role": "Deploys RobinhoodMixedFeeLaunchToken instances for V2 launches.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodMixedFeeLaunchTokenFactory.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodMixedFeeLaunchTokenFactory.sol",
+      "abi": "abis/RobinhoodMixedFeeLaunchTokenFactory.json",
+      "verification": "verified",
+      "transaction": "0x3223561bfdd270984cb24c592b7982ccf4fd7af28fc8ace1f8ffc355e5291a60",
+      "blockNumber": 57859988
+    },
+    "poolDeployer": {
+      "address": "0x4B400e1AcC76729BE6A86C3fC73Ab2b8d80B78EF",
+      "contractName": "RobinhoodDividendFeePoolDeployer",
+      "role": "Initializes post-bond pools and deposits LP NFTs into the V2 vault.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendFeePoolDeployer.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendFeePoolDeployer.sol",
+      "abi": "abis/RobinhoodDividendFeePoolDeployer.json",
+      "verification": "verified",
+      "transaction": "0x279b4955ae0e6971549f055dd1e9e1cb14e2080f4a4703524b368d4b51c64737",
+      "blockNumber": 57860055
+    },
+    "dividendFeeHelper": {
+      "address": "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+      "contractName": "RobinhoodDividendFeeHelper",
+      "role": "Splits and routes post-bond protocol, referral, and dividend fees.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodDividendFeeHelper.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodDividendFeeHelper.sol",
+      "abi": "abis/RobinhoodDividendFeeHelper.json",
+      "verification": "verified",
+      "transaction": "0xa54878e53d51eec1ee3cfcc2cbb4f9de3e3a245a8c6ee90a83e9348315589c4e",
+      "blockNumber": 57078453
+    },
+    "mixedFeeHook": {
+      "address": "0xa4555952075BDFD473521f3d754d13442EE3e0Cc",
+      "contractName": "RobinhoodMixedFeeHook",
+      "role": "Shared Uniswap v4 hook for protocol fees and token-holder dividends.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodMixedFeeHook.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodMixedFeeHook.sol",
+      "abi": "abis/RobinhoodMixedFeeHook.json",
+      "verification": "verified",
+      "transaction": "0xa873ef6a713bae3cb433dcc90d9ab0a2c7ded73e5a45447267ed9f3e1bcdc348",
+      "blockNumber": 57078507
+    },
+    "referralRegistry": {
       "address": "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
       "contractName": "RobinhoodArenaReferralRegistry",
-      "role": "Referral attribution and authorization registry.",
+      "role": "V1 referral registry reused by the V2 managers and fee helper.",
+      "source": "sources/contracts/contracts/robinhood/RobinhoodArenaReferralRegistry.sol",
+      "sourceUnit": "contracts/contracts/robinhood/RobinhoodArenaReferralRegistry.sol",
       "abi": "abis/RobinhoodArenaReferralRegistry.json",
-      "verification": "verified"
-    },
-    {
-      "key": "feeHelper",
-      "address": "0xab56cD18f3200Fb82BFE79bEFc2D8FE19528E950",
-      "contractName": "RobinhoodArenaFeeHelper",
-      "role": "Stores and routes post-bond protocol, creator, and referral fees.",
-      "abi": "abis/RobinhoodArenaFeeHelper.json",
-      "verification": "verified"
-    },
-    {
-      "key": "tokenFactory",
-      "address": "0x4ec0d15BC8D2f5a7eb4d14e789c92C7F7B96425D",
-      "contractName": "RobinhoodLaunchTokenFactory",
-      "role": "Deploys one RobinhoodLaunchToken instance per launch.",
-      "abi": "abis/RobinhoodLaunchTokenFactory.json",
-      "verification": "verified"
-    },
-    {
-      "key": "hookFactory",
-      "address": "0x4e8005ce21b857200B4E581F247E76765249143A",
-      "contractName": "RobinhoodArenaFeeHookFactory",
-      "role": "CREATE2 factory for the shared Uniswap v4 fee hook.",
-      "abi": "abis/RobinhoodArenaFeeHookFactory.json",
-      "verification": "verified"
-    },
-    {
-      "key": "hook",
-      "address": "0x99d4C5Cf21d8F00b627AFe2Bf1eE2840f886e044",
-      "contractName": "RobinhoodArenaFeeHook",
-      "role": "Shared Uniswap v4 hook that assesses and routes post-bond fees.",
-      "abi": "abis/RobinhoodArenaFeeHook.json",
-      "verification": "verified"
-    },
-    {
-      "key": "poolDeployer",
-      "address": "0x20E399396F031a26374aAD956AA8D7Fb241d6852",
-      "contractName": "RobinhoodArenaFeePoolDeployer",
-      "role": "Creates launch pools, initializes price, and mints initial v4 liquidity.",
-      "abi": "abis/RobinhoodArenaFeePoolDeployer.json",
-      "verification": "verified"
-    },
-    {
-      "key": "prismRegistry",
-      "address": "0x0a8d2cA44CbD6cce055fEeafA8f51DeeA0Ae99AB",
-      "contractName": "RobinhoodPrismRegistry",
-      "role": "Maps approved Prism quote tokens to their manager proxies.",
-      "abi": "abis/RobinhoodPrismRegistry.json",
-      "verification": "verified"
-    },
-    {
-      "key": "nativePriceHelper",
-      "address": "0x4bAEfc1A42367A0F465EB2da84c1A44bAED7A803",
-      "contractName": "RobinhoodNativePriceHelper",
-      "role": "Read-only Native manager bonding price helper.",
-      "abi": "abis/RobinhoodNativePriceHelper.json",
-      "verification": "verified"
-    },
-    {
-      "key": "nativeSingleTxBuyer",
-      "address": "0x565d6549249f363cF1575d2C4ce3F34a451F1931",
-      "contractName": "RobinhoodSingleTxBuyer",
-      "role": "One-transaction Native launch and initial purchase helper.",
-      "abi": "abis/RobinhoodSingleTxBuyer.json",
-      "verification": "verified"
-    },
-    {
-      "key": "nativeSingleTxQuoter",
-      "address": "0x54BF5B497c36a2Ac2D24A07fF648B0241f25E0e4",
-      "contractName": "RobinhoodSingleTxQuoter",
-      "role": "Quotes Native launch and purchase flows.",
-      "abi": "abis/RobinhoodSingleTxQuoter.json",
-      "verification": "verified"
-    },
-    {
-      "key": "prismBuyer",
-      "address": "0x7705AE5d708a44424e1974ac069C744Df6dAe3D0",
-      "contractName": "RobinhoodPrismBuyer",
-      "role": "One-transaction Prism launch and initial purchase helper.",
-      "abi": "abis/RobinhoodPrismBuyer.json",
-      "verification": "verified"
-    },
-    {
-      "key": "prismQuoter",
-      "address": "0x6c3bBCF851cB0eb50dd01D6eA53FD3b5Bf811890",
-      "contractName": "RobinhoodPrismQuoter",
-      "role": "Quotes registered Prism launch and purchase flows.",
-      "abi": "abis/RobinhoodPrismQuoter.json",
-      "verification": "verified"
-    },
-    {
-      "key": "prismNativeRouter",
-      "address": "0xE6d6902D804940C3011C17E505B00A08330aa0bC",
-      "contractName": "RobinhoodPrismNativeRouter",
-      "role": "ETH entry and exit router for registered Prism pairs.",
-      "abi": "abis/RobinhoodPrismNativeRouter.json",
-      "verification": "verified"
-    },
-    {
-      "key": "postBondQuoter",
-      "address": "0xA2C1571748c7fA2ce8F46a6CC2e41B0f6BbAbAEE",
-      "contractName": "RobinhoodPostBondQuoter",
-      "role": "Quotes Uniswap v4 trading after bonding completes.",
-      "abi": "abis/RobinhoodPostBondQuoter.json",
-      "verification": "verified"
-    },
-    {
-      "key": "postBondRouter",
-      "address": "0x04eda72FA05772bEa3D516F446b5aFBf55b74CdF",
-      "contractName": "RobinhoodPostBondRouter",
-      "role": "Routes post-bond swaps through the Uniswap Universal Router.",
-      "abi": "abis/RobinhoodPostBondRouter.json",
-      "verification": "verified"
-    },
-    {
-      "key": "tokenDataHelper",
-      "address": "0x32A7956228D2610e499d4841B833C3A6b7496a21",
-      "contractName": "RobinhoodTokenDataHelper",
-      "role": "Aggregates launch-token, manager, and v4 position data for clients.",
-      "abi": "abis/RobinhoodTokenDataHelper.json",
-      "verification": "verified"
-    },
-    {
-      "key": "lpFeeCompounder",
-      "address": "0x7a64a25e6EBaaD37Ae81cCD7E57c6BE0BD513347",
-      "contractName": "RobinhoodLPFeeCompounder",
-      "abi": "abis/RobinhoodLPFeeCompounder.json",
-      "role": "Claims and reinvests Safe-owned Uniswap v4 LP fees.",
-      "verification": "verified"
-    },
-    {
-      "key": "bridgedArena",
-      "address": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
-      "contractName": "BridgedArenaOFT",
-      "abi": "abis/BridgedArenaOFT.json",
-      "role": "LayerZero OFT representation of ARENA on Robinhood Chain.",
-      "verification": "pending-source-publication"
-    },
-    {
-      "key": "arenaEthLiquidityLauncher",
-      "address": "0xF83d9bb6f76a18d9De2DeE85ECf6Bd668a94cD9C",
-      "contractName": "RobinhoodArenaEthLiquidityLauncher",
-      "abi": "abis/RobinhoodArenaEthLiquidityLauncher.json",
-      "role": "One-use launcher that initialized and seeded the ARENA/ETH v4 pool.",
-      "verification": "pending-source-publication",
-      "operationalStatus": "launched-and-authorization-revoked"
+      "verification": "verified-reused-v1-deployment"
     }
-  ],
-  "managerPairs": {
-    "ARENA": {
-      "kind": "prism",
-      "quoteToken": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
-      "proxy": "0x1F2e88D968A5B80608d3718A12Ac5a8925a65F23",
-      "implementation": "0x145Be2bf1FB53c4ee5Af250D072d3A046b9C4c6b",
-      "priceHelper": "0x5084c71106D8B68f85E79e1A72Fdb3573fD599F2",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
-      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+  },
+  "peripheryContracts": {
+    "prismRegistry": {
+      "address": "0xF50316b2174c605F53aC37812D83b031D162AD70",
+      "contractName": "RobinhoodV2PrismRegistry",
+      "role": "Maps supported Prism pair tokens to their active manager proxies.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismRegistry.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2PrismRegistry.sol",
+      "abi": "abis/RobinhoodV2PrismRegistry.json",
       "verification": "verified",
-      "operationalStatus": "active"
+      "transaction": "0x3c360147ace1b93c448af86715034147896d81c94c440a06ea8c6fdc116676a6",
+      "blockNumber": 57920095
+    },
+    "prismQuoter": {
+      "address": "0x9818Da8f49a9a5Ee47bc2F8Fee9582dd9044a805",
+      "contractName": "RobinhoodV2PrismQuoter",
+      "role": "Read-only quoting for V2 Prism launch and purchase flows.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismQuoter.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2PrismQuoter.sol",
+      "abi": "abis/RobinhoodV2PrismQuoter.json",
+      "verification": "verified",
+      "transaction": "0x4d5130af8d5c909bebf40808f5a62186460482f419af913a20b2db7cc6db5778",
+      "blockNumber": 57921361
+    },
+    "prismBuyer": {
+      "address": "0x07f75a4bb6D1D9de880e71F4259bB877D794dA5B",
+      "contractName": "RobinhoodV2PrismBuyer",
+      "role": "Atomic V2 Prism launch and initial purchase helper.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismBuyer.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2PrismBuyer.sol",
+      "abi": "abis/RobinhoodV2PrismBuyer.json",
+      "verification": "verified",
+      "transaction": "0x5731871a8a8809552eb56ce0715e821c636f95a68131a0bf6c973751e4ad4c40",
+      "blockNumber": 57921429
+    },
+    "prismNativeRouterV4": {
+      "address": "0x53Fa410b729aa4a632a6d84F0e907A137534Bfc7",
+      "contractName": "RobinhoodV2PrismNativeRouter",
+      "role": "Native-asset entry and exit router through Uniswap v4.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismNativeRouter.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2PrismNativeRouter.sol",
+      "abi": "abis/RobinhoodV2PrismNativeRouter.json",
+      "verification": "verified",
+      "transaction": "0x2fbf0c05adcce07a3d3acf4adf72f3c0a4729baa172352ed7ee8e15cd20dddad",
+      "blockNumber": 57921516
+    },
+    "prismNativeRouterV3": {
+      "address": "0x898f0fFdF329f50B020CEe5666FfB3602E469b8d",
+      "contractName": "RobinhoodV2PrismNativeRouterV3",
+      "role": "Native-asset entry and exit router through Uniswap v3.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismNativeRouterV3.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2PrismNativeRouterV3.sol",
+      "abi": "abis/RobinhoodV2PrismNativeRouterV3.json",
+      "verification": "verified",
+      "transaction": "0x8c607e8f65c27a86add5322b47c9d986fa011c1063b3a9b210c177887619525d",
+      "blockNumber": 57921583
+    },
+    "nativePriceHelper": {
+      "address": "0x24a21CB67D0e6609D26Cc678db7ef13bffFEC142",
+      "contractName": "RobinhoodV2NativePriceHelper",
+      "role": "Read-only Native manager price helper.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2NativePriceHelper.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2NativePriceHelper.sol",
+      "abi": "abis/RobinhoodV2NativePriceHelper.json",
+      "verification": "verified",
+      "transaction": "0x1e7dd696ccbff0b4cadcec6c37fe31f5a137712fd3fc42e6f052408d8ad43e3f",
+      "blockNumber": 58005128
+    },
+    "nativeQuoter": {
+      "address": "0x24Dbbc15f3c397DeBE33d64F877B85b2e6BE918a",
+      "contractName": "RobinhoodV2NativeQuoter",
+      "role": "Quotes current V2 Native launch and purchase flows.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2NativeQuoter.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2NativeQuoter.sol",
+      "abi": "abis/RobinhoodV2NativeQuoter.json",
+      "verification": "verified",
+      "transaction": "0x1c325d5e3a94dc908d3edeb85f26d03582d8a52a5e5fc68c5e399a9438cc5c99",
+      "blockNumber": 58005153
+    },
+    "nativeBuyer": {
+      "address": "0xBA8f8025461E22164426E5DF84354138099eEacA",
+      "contractName": "RobinhoodV2NativeBuyer",
+      "role": "Atomic current V2 Native launch and initial purchase helper.",
+      "source": "sources/contractsV2/contracts/robinhood/RobinhoodV2NativeBuyer.sol",
+      "sourceUnit": "contractsV2/contracts/robinhood/RobinhoodV2NativeBuyer.sol",
+      "abi": "abis/RobinhoodV2NativeBuyer.json",
+      "verification": "verified",
+      "transaction": "0x8963985753ae5e4c52fbf38f4afa83db2c0fd26c45c234d774f244abce7e7ddd",
+      "blockNumber": 58005220
+    }
+  },
+  "managerPairs": {
+    "NATIVE": {
+      "kind": "native",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "quoteToken": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+      "tokenIdNamespace": {
+        "start": "1200000000000",
+        "endExclusive": "200000000000"
+      },
+      "managerProxy": "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xcbdc7e812241b4a8eb082d0b7976f3f3d738f9a975733de7babc8f73eb67982f",
+      "managerProxyBlockNumber": 58005061,
+      "managerImplementation": "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodNativePairTokenManagerV2.sol",
+      "priceHelper": "0x24a21CB67D0e6609D26Cc678db7ef13bffFEC142",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2NativePriceHelper.sol",
+      "quoter": "0x24Dbbc15f3c397DeBE33d64F877B85b2e6BE918a",
+      "buyer": "0xBA8f8025461E22164426E5DF84354138099eEacA",
+      "managerAbi": "abis/RobinhoodNativePairTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2NativePriceHelper.json",
+      "quoterAbi": "abis/RobinhoodV2NativeQuoter.json",
+      "buyerAbi": "abis/RobinhoodV2NativeBuyer.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified",
+        "quoter": "verified",
+        "buyer": "verified"
+      },
+      "economics": {
+        "curveScaler": "3938401442307",
+        "terminalReserve": "2340000000000411335",
+        "creationFeeAmount": "800000000000000",
+        "startingPrice": "818920342453882326786417951080282",
+        "invertedStartingPrice": "7665094405369685981117125"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.native-replacement.json"
     },
     "NVDA": {
       "kind": "prism",
-      "quoteToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
-      "proxy": "0xBA4a7FC7A4622573160c310B57b2581651436Ae3",
-      "implementation": "0x859C69A864E7670695Bbc0D49EdE6a2909AD524A",
-      "priceHelper": "0x89Ebd7711f719Cc6C1c260FdB352C11d9FC2C78D",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "tokenIdNamespace": {
+        "start": "200000000000",
+        "endExclusive": "300000000000"
+      },
+      "managerProxy": "0x2AF1D4240F9c5Bdd8142a73F55E0E74B39E79A36",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x215253abb508e7aa6e0d42fdb7060d436534ccb9c27ae1f4f33d0a983863072c",
+      "managerProxyBlockNumber": 59522328,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x490e7D4D30c9a5501B1fbf1A848fa7BB0DDaA606",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x3393f32fbec66e13d289acf3f6fa7956dddb8f47390fb6bd087b224c057cf5b9",
+      "priceHelperBlockNumber": 59522364,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "438147116820",
+        "terminalReserve": "21033709959995167087",
+        "targetReserve": "21033709959995167087",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "7003455036625531",
+        "startingPrice": "273143989005776987500897208535498",
+        "invertedStartingPrice": "22980925768254487353604316",
+        "capturedAt": "2026-09-10T15:48:29.784Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "SPCX": {
       "kind": "prism",
-      "quoteToken": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
-      "proxy": "0xFC3D2af46D127567b7E867af3a2Af70139d2F9d2",
-      "implementation": "0x1A6C84EeE8398804956B1D4B15B21C4BB03c4719",
-      "priceHelper": "0x89CD1DDF226DB4a39aD9A67e35c3FC7f4e54db06",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+      "tokenIdNamespace": {
+        "start": "300000000000",
+        "endExclusive": "400000000000"
+      },
+      "managerProxy": "0x7685Ff498685247bB3419d2982281EB002FF4dB6",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x6d6383824cb113718345fd28ca376f67e12aef741097ced832f73a443114c13f",
+      "managerProxyBlockNumber": 59523474,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x6367B02ea0EDfe618191E61E10E483A5182d6bE0",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x95fbab6f7470f60165cca79fa2883d4998592f82233d43d1f8fc4b20b0ce4a9c",
+      "priceHelperBlockNumber": 59523510,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "247651723526",
+        "terminalReserve": "37212982989930463546",
+        "targetReserve": "37212982989930463546",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "12390560374022770",
+        "startingPrice": "205353611870436285738407313943790",
+        "invertedStartingPrice": "30567281861821312092306274",
+        "capturedAt": "2026-09-10T15:50:26.856Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "AAPL": {
       "kind": "prism",
-      "quoteToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
-      "proxy": "0x163F8DAA94641bCD3dA3CA1D8993BD73596315D9",
-      "implementation": "0x489D39d8268448123076C6A6116dee11269E6E64",
-      "priceHelper": "0x74B2E0cc4176FE227aD5bFD7Ed838738125a8445",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "tokenIdNamespace": {
+        "start": "400000000000",
+        "endExclusive": "500000000000"
+      },
+      "managerProxy": "0x39CAb5AeB881ED8349DBe175393a85A3f38DAAA2",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xf5050ed29c68c6846ce14fe5214003d6c22163e68ae1f199b4d977ffa47a13bc",
+      "managerProxyBlockNumber": 59524726,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0xe4AcEd9c5e86FfF0705a261ca3D454AC8f400beA",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x52af7f1e2497638104a1aa3e8a729077b1746d5f4ad54e49e088b8fb4bf3d0b2",
+      "priceHelperBlockNumber": 59524764,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "662723596814",
+        "terminalReserve": "13906037780010605277",
+        "targetReserve": "13906037780010605277",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "4630201258603031",
+        "startingPrice": "335929300486224819596804563749280",
+        "invertedStartingPrice": "18685782175895909336683685",
+        "capturedAt": "2026-09-10T15:52:33.129Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "META": {
       "kind": "prism",
-      "quoteToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
-      "proxy": "0x0912d92A448835676952b4fDf656cc33644b516b",
-      "implementation": "0x82341AAB18a74DBa03DfEBa63465Eb1A31331D04",
-      "priceHelper": "0x8275e85d9407A71Da9F483DD7C61C5090efb8A59",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "tokenIdNamespace": {
+        "start": "500000000000",
+        "endExclusive": "600000000000"
+      },
+      "managerProxy": "0x86991083946269c51Fe258b2Fd80b01b5685333E",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xfa905726aab2f98c45e271af5af8e0120ac9218a269a07808307dd615c21c104",
+      "managerProxyBlockNumber": 59525760,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0xa5e155E39c60d6841A924C989F250daDc5600cD3",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x3ef94273efb13df65cfd38b899e704e3550a014d0679eaacb780197d4808732c",
+      "priceHelperBlockNumber": 59525838,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "1287397251933",
+        "terminalReserve": "7158520309999559376",
+        "targetReserve": "7158520309999559376",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "2383525075471037",
+        "startingPrice": "468207059240146328396142253778663",
+        "invertedStartingPrice": "13406678971423017423713773",
+        "capturedAt": "2026-09-10T15:54:17.382Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "TSLA": {
       "kind": "prism",
-      "quoteToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
-      "proxy": "0x0383b874c8301f7bFD7dA00Fd379aB1c72a67BDa",
-      "implementation": "0x30476C859B729f506484d4EBed4BeE7885c655b6",
-      "priceHelper": "0x091Dfe501263D5C208C997674daAB01ADAFD81A5",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "tokenIdNamespace": {
+        "start": "600000000000",
+        "endExclusive": "700000000000"
+      },
+      "managerProxy": "0x2eaDc658bA72a7857EA179550B157D95a1dB2577",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xb43e1617f870c7f69a02ca3008bab04b2c5473c553d525216de722eb567b51b4",
+      "managerProxyBlockNumber": 59527045,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0xb24b67C9B258723B694F13436062b8C8f94f5D8c",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x6b5f920e11d15c14ad2ac809eed5f3c2e9e2a59eaf6ec5b756d0fdaf51da8a67",
+      "priceHelperBlockNumber": 59527082,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "773334366213",
+        "terminalReserve": "11917043619993049306",
+        "targetReserve": "11917043619993049306",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "3967939052163450",
+        "startingPrice": "362881914029403223331899233185138",
+        "invertedStartingPrice": "17297918393579863575489168",
+        "capturedAt": "2026-09-10T15:56:27.919Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "GOOGL": {
       "kind": "prism",
-      "quoteToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
-      "proxy": "0x0f93f0a23b70db46aEcD758219edb6AC0688a821",
-      "implementation": "0x1D3c9d60e8a78c0911aCe1f07c3c50961e17A72D",
-      "priceHelper": "0x43624342c44e1D2b5049aACe8dd4f2b013a2CDA4",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "tokenIdNamespace": {
+        "start": "700000000000",
+        "endExclusive": "800000000000"
+      },
+      "managerProxy": "0xA4481587FD0BF5BA1c0948A65e49A6558109E5AE",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x748c3bd7cdd98d8238115da1439bac6b8de3fbddc6910983222626aeddfac5fa",
+      "managerProxyBlockNumber": 59528729,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x5b429E387e262972B4c13061B6A359b869a894c7",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x3f1e42b964f00778aa3687876792f30ba30abf39df87ba85d56b00bcc17e2413",
+      "priceHelperBlockNumber": 59528774,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "711636182314",
+        "terminalReserve": "12950240030001207318",
+        "targetReserve": "12950240030001207318",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "4311955614874398",
+        "startingPrice": "348105334838638244735987157039768",
+        "invertedStartingPrice": "18032190567537227446022257",
+        "capturedAt": "2026-09-10T15:59:16.137Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
-    "NATIVE": {
-      "kind": "native",
-      "quoteToken": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
-      "proxy": "0x8E217cd9F90B30c0f8A0c85337912eeF29AeCe0a",
-      "implementation": "0x37ABE71a3f8DaCAE65C940608f0F5409a6b1e4aa",
-      "priceHelper": "0x4bAEfc1A42367A0F465EB2da84c1A44bAED7A803",
-      "managerAbi": "abis/RobinhoodNativePairTokenManager.json",
+    "ARENA": {
+      "kind": "prism",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
+      "tokenIdNamespace": {
+        "start": "800000000000",
+        "endExclusive": "900000000000"
+      },
+      "managerProxy": "0x1ed84696a221D767249A0d26B6FEb02C645de0d5",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x9bc62f548fe88cd462dd3f8d01a9dfe8d7d90cb6375edecbd2dfaa96fc3bfcfb",
+      "managerProxyBlockNumber": 59530564,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x0b0E3668457418167CC612811E4bEFd50E187690",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x3bc5de48b7fc06065cbd11d3023bd84edfe1921b710421fec1a4501253f87dce",
+      "priceHelperBlockNumber": 59530644,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodNativePriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "2530914",
+        "terminalReserve": "3641316684407293175508927",
+        "targetReserve": "3641316684407293175508927",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "1212425177241709209248",
+        "startingPrice": "656478281199293108875398941841",
+        "invertedStartingPrice": "9561781273128034600626084257",
+        "capturedAt": "2026-09-10T16:02:24.102Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
+    },
+    "PACK": {
+      "kind": "prism",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x0145AcbcceFbEd6F303C420bEeaaAc72E905430b",
+      "tokenIdNamespace": {
+        "start": "900000000000",
+        "endExclusive": "1000000000000"
+      },
+      "managerProxy": "0x8a9B8FbC2d621e334af996623269c6C81E24ef8c",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xe4215fbee2e4bcb4426628eb38147d7b51cd44c83fb6a38424ac6b6756daa95c",
+      "managerProxyBlockNumber": 59532133,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x76FD5ccBe09Ec8F08893Fb7602097B458463fEcF",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xb24d5a6912b0f1f8fc5e1e979fd04c7c3fda48c5d4080e2a801f3343d793ae19",
+      "priceHelperBlockNumber": 59532211,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "2408411",
+        "terminalReserve": "3826531009449799058383308",
+        "targetReserve": "3826531009449799058383308",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "623526905778869575737",
+        "startingPrice": "640393580132790679613592148880",
+        "invertedStartingPrice": "9801943570522793210344156962",
+        "capturedAt": "2026-09-10T16:05:00.054Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
+    },
+    "THROBBIN": {
+      "kind": "prism",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0xe8fB470E0685437d7739BD2AacBA60b228800335",
+      "tokenIdNamespace": {
+        "start": "1000000000000",
+        "endExclusive": "1100000000000"
+      },
+      "managerProxy": "0x07478206AF95faD0dC2F99627C3AbbbCa82A74D5",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x7d206866d5cf232cfa38c38e4cf1b182c9803f08036e1badb45f6bc715111214",
+      "managerProxyBlockNumber": 59534301,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x8e5A509d3cA2261700A7a9421A2b252CB867b942",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xe4c2bd4dcaf620399e10952029d54365d9427ef6c4b2144a07f8bedd74ea53f8",
+      "priceHelperBlockNumber": 59534378,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "780686",
+        "terminalReserve": "11804822137197285464322404",
+        "targetReserve": "11804822137197285464322404",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "6580000240327894640251",
+        "startingPrice": "364602686294252438375891469119",
+        "invertedStartingPrice": "17216279449791953962658837356",
+        "capturedAt": "2026-09-10T16:08:40.247Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
     "GME": {
       "kind": "prism",
-      "quoteToken": "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
-      "proxy": "0xdeBCF25f95d410a7b73383446D85E35a48CD2c5d",
-      "implementation": "0x680f2D01beFB145A12168Cc822bCdfaeF64A18df",
-      "priceHelper": "0xc47Ef93B4AF435ffF740Eb9D7cD48A1918458197",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "rollout": "core",
+      "operationalStatus": "active",
+      "statusSource": "contractsV2/deployments/robinhood.v2.production.activation.json",
+      "pairToken": "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+      "tokenIdNamespace": {
+        "start": "1100000000000",
+        "endExclusive": "1200000000000"
+      },
+      "managerProxy": "0xB10A1c88589c4C5bbbbd148fA9c9aC74dB9275e1",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x89a1a6f94666111c2cacb30ea7337a8be039adfa738fdeefbd2b56f56db24198",
+      "managerProxyBlockNumber": 59535716,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x69A6830139bd26b9fbdB652576D67335311c77E3",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x432433853b5d09b30e0d9864a8b486c2701608d2dd480483b468bc812ccfd01a",
+      "priceHelperBlockNumber": 59535805,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "active"
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "64048060738",
+        "terminalReserve": "143889748866856628230",
+        "targetReserve": "143889748866856628230",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "47910016270763225",
+        "startingPrice": "104432256195358133043655515276302",
+        "invertedStartingPrice": "60106924470197256069446977",
+        "capturedAt": "2026-09-10T16:11:01.131Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-core-replacement.json"
     },
-    "THROBBIN": {
-      "kind": "prism-wip",
-      "quoteToken": "0xe8fB470E0685437d7739BD2AacBA60b228800335",
-      "reviewedPool": "0xd17044bdbEe55C7bD09c185937C88B9007ab7Be6",
-      "proxy": "0x8FAB988EF068D0f100c5812f56559dEFC7695641",
-      "implementation": "0xbf6CdAe05d9Bc062080453E43F484C65Ae4A70Cc",
-      "priceHelper": "0xdb1651284D3430f5264F5aF53B0BA0f9b01c8069",
-      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+    "SPY": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+      "tokenIdNamespace": {
+        "start": "1300000000000",
+        "endExclusive": "1400000000000"
+      },
+      "managerProxy": "0x7CFF546D83059Dbb5111b06109dA7F2e1bC69748",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xc22a63ac7419ff1367703c644f75bc255236202438aa8129db4aa86635a1332f",
+      "managerProxyBlockNumber": 58699982,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x81Aa9B2a25087C7930E585499cbdB7F12071De63",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x47e4ef80d340bdaffd3b6034be8b01df08ed8dcc0dbbfe5f435c313f6216ff17",
+      "priceHelperBlockNumber": 58700061,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
       "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
-      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
-      "verification": "verified",
-      "operationalStatus": "deployed-configured-paused-unregistered-disabled"
-    }
-  },
-  "dynamicContracts": {
-    "launchToken": {
-      "contractName": "RobinhoodLaunchToken",
-      "abi": "abis/RobinhoodLaunchToken.json",
-      "source": "contracts/robinhood/RobinhoodLaunchToken.sol",
-      "address": "No single address. RobinhoodLaunchTokenFactory deploys one instance per launch."
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "1405197374063",
+        "terminalReserve": "6558409192263990255",
+        "targetReserve": "6558409192266323880",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "131168183845326",
+        "referencePriceUsdE6": "762380000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "489159320724127696726077574285554",
+        "invertedStartingPrice": "12832427942074913904814738",
+        "capturedAt": "2026-09-09T16:46:05.187Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "AMD": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "deferred-paused",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+      "tokenIdNamespace": {
+        "start": "1500000000000",
+        "endExclusive": "1600000000000"
+      },
+      "managerProxy": "0x9644221c99c6146741d00865b36854e7b82ADA2D",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xf8658da21f9210fa04cd8814943fa731db9fc71216569c2c1a080116f15632df",
+      "managerProxyBlockNumber": 58701246,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x580f33176aB0A9d634f6d4649a628F9acA06E609",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x2100b41bcf7798a4fed66c100f7188b5a66d584fa2f37230330eae2bb5ce9dcd",
+      "priceHelperBlockNumber": 58701328,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "964467331172",
+        "terminalReserve": "9555387805412844303",
+        "targetReserve": "9555387805414082731",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "191107756108282",
+        "referencePriceUsdE6": "523265000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "405252244877652541387501163906253",
+        "invertedStartingPrice": "15489369435280403566308344",
+        "capturedAt": "2026-09-09T16:48:13.221Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "AMZN": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "tokenIdNamespace": {
+        "start": "1600000000000",
+        "endExclusive": "1700000000000"
+      },
+      "managerProxy": "0x8B1870829baB552EBA5528E5f38F76260218EA9c",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x324a7f6d739f575b9766b1990bddc4b6f048cf355f68ca2015aec60f3aebf154",
+      "managerProxyBlockNumber": 58702617,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x0c22b545e177be29E0Be5cE2bBDbE812EBd918D6",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xb2233a4078c84b34d5f5db01d501a6b1bb30db7761cd16b1f4445eea779051e1",
+      "priceHelperBlockNumber": 58702698,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "463428704531",
+        "terminalReserve": "19886250646313873789",
+        "targetReserve": "19886250646303146005",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "397725012926063",
+        "referencePriceUsdE6": "251430000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "280913838153927702245984875477445",
+        "invertedStartingPrice": "22345291982188222827961673",
+        "capturedAt": "2026-09-09T16:50:29.944Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "MSFT": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "tokenIdNamespace": {
+        "start": "1700000000000",
+        "endExclusive": "1800000000000"
+      },
+      "managerProxy": "0x3f61929D61bA1f905D862E945E11c4C20fFbf5E6",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xbfa865c24c0091b1e1f01f5765352447d19125b60fd7c2091c1efb5beca7b31c",
+      "managerProxyBlockNumber": 58703791,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x3eD9c358252Fb15407760936f6c458AB34e4FCD8",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xb845972b53437842a2e398abf19d9049a1e74804d84b1f455c0c67f1466ff9a4",
+      "priceHelperBlockNumber": 58703867,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "907246060313",
+        "terminalReserve": "10158059404325798237",
+        "targetReserve": "10158059404331396530",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "203161188086628",
+        "referencePriceUsdE6": "492220000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "393046753974239991066342655330855",
+        "invertedStartingPrice": "15970369102191027418030872",
+        "capturedAt": "2026-09-09T16:52:28.535Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "MU": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD",
+      "tokenIdNamespace": {
+        "start": "2000000000000",
+        "endExclusive": "2100000000000"
+      },
+      "managerProxy": "0x643c95865CA3713fc76D5d810C209C031f747830",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x391134562b2ef427e16e5d1c94f92f39afbb76a1606fb95ab037e0517e62eb9e",
+      "managerProxyBlockNumber": 58705113,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x0e339bDE02cf367E25c5199FF3338F8c8c21Fb76",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xe7422de176187a797a67b50d51b7871945ccf3567746b08867bf62a0d2744622",
+      "priceHelperBlockNumber": 58705146,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "1882811915790",
+        "terminalReserve": "4894731809222251428",
+        "targetReserve": "4894731809222972566",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "97894636184459",
+        "referencePriceUsdE6": "1021430000",
+        "multiplierE18": "1000074823219171086",
+        "startingPrice": "566219911502031930349307409345011",
+        "invertedStartingPrice": "11085978447376015366031150",
+        "capturedAt": "2026-09-09T16:54:44.087Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "PLTR": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "deferred-paused",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "tokenIdNamespace": {
+        "start": "2100000000000",
+        "endExclusive": "2200000000000"
+      },
+      "managerProxy": "0xCe761bCDb7b1a8E05c45db9620a100b059ca1F78",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x1473c3ff731fdfd3fac6c47e1160310e79feb821d6ffe90f90498cc1395a314a",
+      "managerProxyBlockNumber": 58706544,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x182e3b626C91374C148b18C9EB903De25409e566",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xbf3633e2ef0ed7c9eca8fc2ed0b4b3284d97bad4f1a9ced5787d3e1b0b91f031",
+      "priceHelperBlockNumber": 58706618,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "314721597656",
+        "terminalReserve": "29282576866787535955",
+        "targetReserve": "29282576866764275256",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "585651537335286",
+        "referencePriceUsdE6": "170750000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "231496773337818289883034865958823",
+        "invertedStartingPrice": "27115288238711821962842623",
+        "capturedAt": "2026-09-09T16:57:07.132Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "COST": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2",
+      "tokenIdNamespace": {
+        "start": "2400000000000",
+        "endExclusive": "2500000000000"
+      },
+      "managerProxy": "0x897420b8F4d972d22bb2751A37B69C7683E816b8",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x9538bbf29ea6ef5278fa3b206de7ef5475916450bcdd9581c65d2f9b2805c7fd",
+      "managerProxyBlockNumber": 58707785,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0xd89e8411E170B6948EB0741504880E304a96Ebd2",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x04c47ca97c349304043d663f55a48b8ee875c8eb9b7f09e3984343031f2f76a7",
+      "priceHelperBlockNumber": 58707864,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "1657536933952",
+        "terminalReserve": "5559972261388462472",
+        "targetReserve": "5559972261389278346",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "111199445227786",
+        "referencePriceUsdE6": "898735000",
+        "multiplierE18": "1000612040296259656",
+        "startingPrice": "531267532581851919721239704606667",
+        "invertedStartingPrice": "11815330978125551538639113",
+        "capturedAt": "2026-09-09T16:59:13.000Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "QQQ": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68",
+      "tokenIdNamespace": {
+        "start": "2700000000000",
+        "endExclusive": "2800000000000"
+      },
+      "managerProxy": "0xD67DaC287F35d74b1aefE2651B3e8eDc9A61592b",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x159ee6857c35a69289fa4e19cb43173609afa6db68bc0bbc8815f9c8276b8f4a",
+      "managerProxyBlockNumber": 58708899,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x84F22A660CA140D7572918AEc183160FeEF39264",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0xaa47847ee1e9cc39174614a754b72f1a17e35d3b341ae7c3340b6326c1c64692",
+      "priceHelperBlockNumber": 58708975,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "1320070481016",
+        "terminalReserve": "6981338881168647675",
+        "targetReserve": "6981338881170630904",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "139626777623413",
+        "referencePriceUsdE6": "716195000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "474111214662580035478159459050570",
+        "invertedStartingPrice": "13239724227687860206009216",
+        "capturedAt": "2026-09-09T17:01:05.013Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "GLD": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0xC9a981FEE1F9DEc688bb123ccDeCc63D0deBFC4e",
+      "tokenIdNamespace": {
+        "start": "3100000000000",
+        "endExclusive": "3200000000000"
+      },
+      "managerProxy": "0xF9E95D009B64c78A4f84E39a85c2FCa1238B0Cf9",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x392da79ee67538329834305a58c95b6ac0868996c1cc89494ba0ee095ff3c634",
+      "managerProxyBlockNumber": 58710013,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x4c664de27f56430977D083a91983BD9e7676F91b",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x6a79a0fa04294e511563c89ab7c387a3e5f706efe40c84c8c3d74c3993afeee0",
+      "priceHelperBlockNumber": 58710089,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "744945560859",
+        "terminalReserve": "12371185035820808241",
+        "targetReserve": "12371185035814580679",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "247423700716292",
+        "referencePriceUsdE6": "404165000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "356159011038698888320401768958535",
+        "invertedStartingPrice": "17624436110938758977709858",
+        "capturedAt": "2026-09-09T17:02:56.107Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "LLY": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x8005d266423c7ea827372c9c864491e5786600ea",
+      "tokenIdNamespace": {
+        "start": "3200000000000",
+        "endExclusive": "3300000000000"
+      },
+      "managerProxy": "0x3B2993c8A2c3B5Ee0Dbc5c761a263A60ECeDEB0c",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xea5791464833e5e1c04a9fc94e852974210c3170ffc49c0b34fbf33ac0425f10",
+      "managerProxyBlockNumber": 58711268,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x65954785fdb7f5219CE363f4bBd34622F4036306",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x28299934f67ed67aea6fec0eb48cc994975e251407321c0cc14c53c759746480",
+      "priceHelperBlockNumber": 58711303,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "2073024623672",
+        "terminalReserve": "4445610182225293307",
+        "targetReserve": "4445610182225561369",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "88912203644511",
+        "referencePriceUsdE6": "1124705000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "594133306055909580970409380796251",
+        "invertedStartingPrice": "10565140300005312607014337",
+        "capturedAt": "2026-09-09T17:05:04.373Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "TSM": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA",
+      "tokenIdNamespace": {
+        "start": "3400000000000",
+        "endExclusive": "3500000000000"
+      },
+      "managerProxy": "0xbc0A2a94CD5D8ECD696efD6efb0240EDbAbCf850",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x82381469b398242dd87b098b240989208f17013450e65851606b52a0b976b166",
+      "managerProxyBlockNumber": 58712229,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x2e480Eb0381169709186df2D3e68E54aAb86Ef58",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x35333dae0f0d115ee6ad5bad91ec28bce2a67887739fe7dcf02efa57219c030b",
+      "priceHelperBlockNumber": 58712263,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "800544840469",
+        "terminalReserve": "11511983975314711311",
+        "targetReserve": "11511983975318306357",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "230239679506366",
+        "referencePriceUsdE6": "434330000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "369210888025485270588022481291157",
+        "invertedStartingPrice": "17001399305844402676855313",
+        "capturedAt": "2026-09-09T17:06:41.703Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "SKHY": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "deferred-paused",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8",
+      "tokenIdNamespace": {
+        "start": "3600000000000",
+        "endExclusive": "3700000000000"
+      },
+      "managerProxy": "0xCd8De3f8D687a857309B8ff79D09e6d99636aBAa",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xff000b538abd13976ad050eb442290e1be6697565fc78bb4b0e8d2a6dca80d12",
+      "managerProxyBlockNumber": 58713341,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x7B723bAD1DcC0eEb6C6a9c10463fadDEf96d19A9",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x67493b6fd3834bfd51948999c8b408994fda157934da8595e3351db643fced46",
+      "priceHelperBlockNumber": 58713420,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "357252788672",
+        "terminalReserve": "25796465884164842196",
+        "targetReserve": "25796465884173868180",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "515929317683477",
+        "referencePriceUsdE6": "193825000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "246643390734654503402998625520409",
+        "invertedStartingPrice": "25450111258565015326880009",
+        "capturedAt": "2026-09-09T17:08:32.252Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "USO": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "deferred-paused",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344",
+      "tokenIdNamespace": {
+        "start": "3800000000000",
+        "endExclusive": "3900000000000"
+      },
+      "managerProxy": "0x16f9086F4A9C4829c58C5ed7837771005e958644",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0x0387de154d71546d76cd1e4bea4291ef374166ec62c9e489816deded431d5594",
+      "managerProxyBlockNumber": 58714505,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x8418686B47D80348a9d83518B830322EE0c8c01C",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x1a2f44a9c29525a775cef9860afa4721e2adf962ee4572bc47a8973f6809924b",
+      "priceHelperBlockNumber": 58714538,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "273876908906",
+        "terminalReserve": "33649639948883263303",
+        "targetReserve": "33649639948852547278",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "672992798977051",
+        "referencePriceUsdE6": "148590000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "215953067454511455393844822065117",
+        "invertedStartingPrice": "29066971862804843047588777",
+        "capturedAt": "2026-09-09T17:10:30.271Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "JNJ": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "deferred-paused",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x03DfbBE0AC4E7bCDaFd08eD41A400326B77D8c80",
+      "tokenIdNamespace": {
+        "start": "4500000000000",
+        "endExclusive": "4600000000000"
+      },
+      "managerProxy": "0x235F704c412E5671304DFeD424dbc6945C21475c",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xdf0551befd05f11d4c6bfc41259387334f5c21b2b1cbe4374bc1ee8517b4f9d7",
+      "managerProxyBlockNumber": 58715630,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0x93B36685dA417781f84f94D46E827580f5CF6B18",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x3e871c746211b7523b447ad0cbfc47324be1826c880f455b1e1d1ea9dd49139e",
+      "priceHelperBlockNumber": 58715706,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "492165114745",
+        "terminalReserve": "18725137355123005875",
+        "targetReserve": "18725137355113393177",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "374502747102268",
+        "referencePriceUsdE6": "267015000",
+        "multiplierE18": "1000021490286701962",
+        "startingPrice": "289492343536061738350987654268055",
+        "invertedStartingPrice": "21683135583876846821619075",
+        "capturedAt": "2026-09-09T17:12:24.145Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
+    },
+    "SLV": {
+      "kind": "prism",
+      "rollout": "expansion",
+      "operationalStatus": "active-rollout",
+      "statusSource": "rollouts/open-production-prism-expansion-10.js",
+      "pairToken": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+      "tokenIdNamespace": {
+        "start": "5400000000000",
+        "endExclusive": "5500000000000"
+      },
+      "managerProxy": "0x93CD6aA4b04269CDfB749f667020E8b19E0A8AF4",
+      "managerProxyContract": "RobinhoodTokenManagerProxy",
+      "managerProxySource": "sources/contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "managerProxyTransaction": "0xba2e916b3bee7991e39f020b20eb6bea5e9d6dab4411a308503e52817903b187",
+      "managerProxyBlockNumber": 58716626,
+      "managerImplementation": "0xe8B180832ff356e26edde71EDEe2e9f8D80AB052",
+      "managerImplementationSource": "sources/contractsV2/contracts/robinhood/RobinhoodPrismTokenManagerV2.sol",
+      "priceHelper": "0xd5f5FBc1553785eB880d3B1AA0685EB4a65005cA",
+      "priceHelperSource": "sources/contractsV2/contracts/robinhood/RobinhoodV2PrismPriceHelper.sol",
+      "priceHelperTransaction": "0x08316c8cf2b3982f88ae8cd74a1a2b43bdc78b81b79b33866d5ac0a49d11289b",
+      "priceHelperBlockNumber": 58716702,
+      "managerAbi": "abis/RobinhoodPrismTokenManagerV2.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodV2PrismPriceHelper.json",
+      "verification": {
+        "managerProxy": "verified",
+        "implementation": "verified",
+        "priceHelper": "verified"
+      },
+      "economics": {
+        "curveScaler": "112534858828",
+        "terminalReserve": "81893374826067542948",
+        "targetReserve": "81893374825976578495",
+        "targetBondUsdE6": "5000000000",
+        "creationFeeAmount": "1637867496519532",
+        "referencePriceUsdE6": "61055000",
+        "multiplierE18": "1000000000000000000",
+        "startingPrice": "138428401430777220099010353000253",
+        "invertedStartingPrice": "45345475859775933761560471",
+        "capturedAt": "2026-09-09T17:14:04.559Z"
+      },
+      "deploymentManifest": "contractsV2/deployments/robinhood.v2.production.prism-expansion.json"
     }
   },
   "externalDependencies": {
     "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
-    "uniswapV4": {
-      "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
-      "positionManager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
-      "stateView": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
-      "universalRouter": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
-      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
-      "positionManagerAbi": "abis/UniswapV4PositionManager.json"
-    },
-    "canonicalArenaAvalanche": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C",
-    "avalancheBridge": "0xA59Ad32dAd425250ca3601F964d92611818F86f7"
+    "uniswapV4PoolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "uniswapV4PositionManager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+    "uniswapV4StateView": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
+    "uniswapUniversalRouter": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "uniswapV3Factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA"
+  },
+  "rollout": {
+    "coreActive": [
+      "NATIVE",
+      "NVDA",
+      "SPCX",
+      "AAPL",
+      "META",
+      "TSLA",
+      "GOOGL",
+      "ARENA",
+      "PACK",
+      "THROBBIN",
+      "GME"
+    ],
+    "expansionActive": [
+      "SPY",
+      "AMZN",
+      "MSFT",
+      "MU",
+      "COST",
+      "QQQ",
+      "GLD",
+      "LLY",
+      "TSM",
+      "SLV"
+    ],
+    "expansionDeferred": [
+      "AMD",
+      "PLTR",
+      "SKHY",
+      "USO",
+      "JNJ"
+    ],
+    "coreActivationCompletedAt": "2026-09-10T18:09:02.295Z"
   }
 }

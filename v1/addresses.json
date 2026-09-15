@@ -1,0 +1,315 @@
+{
+  "chain": {
+    "name": "Robinhood Chain",
+    "chainId": 4663,
+    "rpc": "https://rpc.mainnet.chain.robinhood.com",
+    "explorer": "https://robinhoodchain.blockscout.com"
+  },
+  "verificationNote": "All 46 Arena launchpad, manager, proxy, helper, THROBBIN, and compounder deployments are source-verified. BridgedArenaOFT and the one-use ARENA/ETH launcher await source publication.",
+  "governance": {
+    "lpAndManagerSafe": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1",
+    "compounderAdmin": "0x53229a27dE1E4e263375351Db4492C1E4bf0Ed48",
+    "initialLaunchFeeRecipient": "0x160b4D8fe9D6fe1d10ABd5E18097676948d288A5",
+    "preBondFeeRecipient": "0x7C85Be2F4043201461EF98124Dd5d273B2f575fF",
+    "dexFeeRecipient": "0x5Ab2d4181aaE405Cf12DA8E6a0b7596c252F7679"
+  },
+  "arenaContracts": [
+    {
+      "key": "referralRegistry",
+      "address": "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
+      "contractName": "RobinhoodArenaReferralRegistry",
+      "role": "Referral attribution and authorization registry.",
+      "abi": "abis/RobinhoodArenaReferralRegistry.json",
+      "verification": "verified"
+    },
+    {
+      "key": "feeHelper",
+      "address": "0xab56cD18f3200Fb82BFE79bEFc2D8FE19528E950",
+      "contractName": "RobinhoodArenaFeeHelper",
+      "role": "Stores and routes post-bond protocol, creator, and referral fees.",
+      "abi": "abis/RobinhoodArenaFeeHelper.json",
+      "verification": "verified"
+    },
+    {
+      "key": "tokenFactory",
+      "address": "0x4ec0d15BC8D2f5a7eb4d14e789c92C7F7B96425D",
+      "contractName": "RobinhoodLaunchTokenFactory",
+      "role": "Deploys one RobinhoodLaunchToken instance per launch.",
+      "abi": "abis/RobinhoodLaunchTokenFactory.json",
+      "verification": "verified"
+    },
+    {
+      "key": "hookFactory",
+      "address": "0x4e8005ce21b857200B4E581F247E76765249143A",
+      "contractName": "RobinhoodArenaFeeHookFactory",
+      "role": "CREATE2 factory for the shared Uniswap v4 fee hook.",
+      "abi": "abis/RobinhoodArenaFeeHookFactory.json",
+      "verification": "verified"
+    },
+    {
+      "key": "hook",
+      "address": "0x99d4C5Cf21d8F00b627AFe2Bf1eE2840f886e044",
+      "contractName": "RobinhoodArenaFeeHook",
+      "role": "Shared Uniswap v4 hook that assesses and routes post-bond fees.",
+      "abi": "abis/RobinhoodArenaFeeHook.json",
+      "verification": "verified"
+    },
+    {
+      "key": "poolDeployer",
+      "address": "0x20E399396F031a26374aAD956AA8D7Fb241d6852",
+      "contractName": "RobinhoodArenaFeePoolDeployer",
+      "role": "Creates launch pools, initializes price, and mints initial v4 liquidity.",
+      "abi": "abis/RobinhoodArenaFeePoolDeployer.json",
+      "verification": "verified"
+    },
+    {
+      "key": "prismRegistry",
+      "address": "0x0a8d2cA44CbD6cce055fEeafA8f51DeeA0Ae99AB",
+      "contractName": "RobinhoodPrismRegistry",
+      "role": "Maps approved Prism quote tokens to their manager proxies.",
+      "abi": "abis/RobinhoodPrismRegistry.json",
+      "verification": "verified"
+    },
+    {
+      "key": "nativePriceHelper",
+      "address": "0x4bAEfc1A42367A0F465EB2da84c1A44bAED7A803",
+      "contractName": "RobinhoodNativePriceHelper",
+      "role": "Read-only Native manager bonding price helper.",
+      "abi": "abis/RobinhoodNativePriceHelper.json",
+      "verification": "verified"
+    },
+    {
+      "key": "nativeSingleTxBuyer",
+      "address": "0x565d6549249f363cF1575d2C4ce3F34a451F1931",
+      "contractName": "RobinhoodSingleTxBuyer",
+      "role": "One-transaction Native launch and initial purchase helper.",
+      "abi": "abis/RobinhoodSingleTxBuyer.json",
+      "verification": "verified"
+    },
+    {
+      "key": "nativeSingleTxQuoter",
+      "address": "0x54BF5B497c36a2Ac2D24A07fF648B0241f25E0e4",
+      "contractName": "RobinhoodSingleTxQuoter",
+      "role": "Quotes Native launch and purchase flows.",
+      "abi": "abis/RobinhoodSingleTxQuoter.json",
+      "verification": "verified"
+    },
+    {
+      "key": "prismBuyer",
+      "address": "0x7705AE5d708a44424e1974ac069C744Df6dAe3D0",
+      "contractName": "RobinhoodPrismBuyer",
+      "role": "One-transaction Prism launch and initial purchase helper.",
+      "abi": "abis/RobinhoodPrismBuyer.json",
+      "verification": "verified"
+    },
+    {
+      "key": "prismQuoter",
+      "address": "0x6c3bBCF851cB0eb50dd01D6eA53FD3b5Bf811890",
+      "contractName": "RobinhoodPrismQuoter",
+      "role": "Quotes registered Prism launch and purchase flows.",
+      "abi": "abis/RobinhoodPrismQuoter.json",
+      "verification": "verified"
+    },
+    {
+      "key": "prismNativeRouter",
+      "address": "0xE6d6902D804940C3011C17E505B00A08330aa0bC",
+      "contractName": "RobinhoodPrismNativeRouter",
+      "role": "ETH entry and exit router for registered Prism pairs.",
+      "abi": "abis/RobinhoodPrismNativeRouter.json",
+      "verification": "verified"
+    },
+    {
+      "key": "postBondQuoter",
+      "address": "0xA2C1571748c7fA2ce8F46a6CC2e41B0f6BbAbAEE",
+      "contractName": "RobinhoodPostBondQuoter",
+      "role": "Quotes Uniswap v4 trading after bonding completes.",
+      "abi": "abis/RobinhoodPostBondQuoter.json",
+      "verification": "verified"
+    },
+    {
+      "key": "postBondRouter",
+      "address": "0x04eda72FA05772bEa3D516F446b5aFBf55b74CdF",
+      "contractName": "RobinhoodPostBondRouter",
+      "role": "Routes post-bond swaps through the Uniswap Universal Router.",
+      "abi": "abis/RobinhoodPostBondRouter.json",
+      "verification": "verified"
+    },
+    {
+      "key": "tokenDataHelper",
+      "address": "0x32A7956228D2610e499d4841B833C3A6b7496a21",
+      "contractName": "RobinhoodTokenDataHelper",
+      "role": "Aggregates launch-token, manager, and v4 position data for clients.",
+      "abi": "abis/RobinhoodTokenDataHelper.json",
+      "verification": "verified"
+    },
+    {
+      "key": "lpFeeCompounder",
+      "address": "0x7a64a25e6EBaaD37Ae81cCD7E57c6BE0BD513347",
+      "contractName": "RobinhoodLPFeeCompounder",
+      "abi": "abis/RobinhoodLPFeeCompounder.json",
+      "role": "Claims and reinvests Safe-owned Uniswap v4 LP fees.",
+      "verification": "verified"
+    },
+    {
+      "key": "bridgedArena",
+      "address": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
+      "contractName": "BridgedArenaOFT",
+      "abi": "abis/BridgedArenaOFT.json",
+      "role": "LayerZero OFT representation of ARENA on Robinhood Chain.",
+      "verification": "pending-source-publication"
+    },
+    {
+      "key": "arenaEthLiquidityLauncher",
+      "address": "0xF83d9bb6f76a18d9De2DeE85ECf6Bd668a94cD9C",
+      "contractName": "RobinhoodArenaEthLiquidityLauncher",
+      "abi": "abis/RobinhoodArenaEthLiquidityLauncher.json",
+      "role": "One-use launcher that initialized and seeded the ARENA/ETH v4 pool.",
+      "verification": "pending-source-publication",
+      "operationalStatus": "launched-and-authorization-revoked"
+    }
+  ],
+  "managerPairs": {
+    "ARENA": {
+      "kind": "prism",
+      "quoteToken": "0x50832d74a7160E2f7d361F5E678E107D228B9Aa6",
+      "proxy": "0x1F2e88D968A5B80608d3718A12Ac5a8925a65F23",
+      "implementation": "0x145Be2bf1FB53c4ee5Af250D072d3A046b9C4c6b",
+      "priceHelper": "0x5084c71106D8B68f85E79e1A72Fdb3573fD599F2",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "NVDA": {
+      "kind": "prism",
+      "quoteToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "proxy": "0xBA4a7FC7A4622573160c310B57b2581651436Ae3",
+      "implementation": "0x859C69A864E7670695Bbc0D49EdE6a2909AD524A",
+      "priceHelper": "0x89Ebd7711f719Cc6C1c260FdB352C11d9FC2C78D",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "SPCX": {
+      "kind": "prism",
+      "quoteToken": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+      "proxy": "0xFC3D2af46D127567b7E867af3a2Af70139d2F9d2",
+      "implementation": "0x1A6C84EeE8398804956B1D4B15B21C4BB03c4719",
+      "priceHelper": "0x89CD1DDF226DB4a39aD9A67e35c3FC7f4e54db06",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "AAPL": {
+      "kind": "prism",
+      "quoteToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "proxy": "0x163F8DAA94641bCD3dA3CA1D8993BD73596315D9",
+      "implementation": "0x489D39d8268448123076C6A6116dee11269E6E64",
+      "priceHelper": "0x74B2E0cc4176FE227aD5bFD7Ed838738125a8445",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "META": {
+      "kind": "prism",
+      "quoteToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "proxy": "0x0912d92A448835676952b4fDf656cc33644b516b",
+      "implementation": "0x82341AAB18a74DBa03DfEBa63465Eb1A31331D04",
+      "priceHelper": "0x8275e85d9407A71Da9F483DD7C61C5090efb8A59",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "TSLA": {
+      "kind": "prism",
+      "quoteToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "proxy": "0x0383b874c8301f7bFD7dA00Fd379aB1c72a67BDa",
+      "implementation": "0x30476C859B729f506484d4EBed4BeE7885c655b6",
+      "priceHelper": "0x091Dfe501263D5C208C997674daAB01ADAFD81A5",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "GOOGL": {
+      "kind": "prism",
+      "quoteToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "proxy": "0x0f93f0a23b70db46aEcD758219edb6AC0688a821",
+      "implementation": "0x1D3c9d60e8a78c0911aCe1f07c3c50961e17A72D",
+      "priceHelper": "0x43624342c44e1D2b5049aACe8dd4f2b013a2CDA4",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "NATIVE": {
+      "kind": "native",
+      "quoteToken": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+      "proxy": "0x8E217cd9F90B30c0f8A0c85337912eeF29AeCe0a",
+      "implementation": "0x37ABE71a3f8DaCAE65C940608f0F5409a6b1e4aa",
+      "priceHelper": "0x4bAEfc1A42367A0F465EB2da84c1A44bAED7A803",
+      "managerAbi": "abis/RobinhoodNativePairTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodNativePriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "GME": {
+      "kind": "prism",
+      "quoteToken": "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+      "proxy": "0xdeBCF25f95d410a7b73383446D85E35a48CD2c5d",
+      "implementation": "0x680f2D01beFB145A12168Cc822bCdfaeF64A18df",
+      "priceHelper": "0xc47Ef93B4AF435ffF740Eb9D7cD48A1918458197",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "active"
+    },
+    "THROBBIN": {
+      "kind": "prism-wip",
+      "quoteToken": "0xe8fB470E0685437d7739BD2AacBA60b228800335",
+      "reviewedPool": "0xd17044bdbEe55C7bD09c185937C88B9007ab7Be6",
+      "proxy": "0x8FAB988EF068D0f100c5812f56559dEFC7695641",
+      "implementation": "0xbf6CdAe05d9Bc062080453E43F484C65Ae4A70Cc",
+      "priceHelper": "0xdb1651284D3430f5264F5aF53B0BA0f9b01c8069",
+      "managerAbi": "abis/RobinhoodPrismTokenManager.json",
+      "proxyAbi": "abis/RobinhoodTokenManagerProxy.json",
+      "priceHelperAbi": "abis/RobinhoodPrismPriceHelper.json",
+      "verification": "verified",
+      "operationalStatus": "deployed-configured-paused-unregistered-disabled"
+    }
+  },
+  "dynamicContracts": {
+    "launchToken": {
+      "contractName": "RobinhoodLaunchToken",
+      "abi": "abis/RobinhoodLaunchToken.json",
+      "source": "contracts/robinhood/RobinhoodLaunchToken.sol",
+      "address": "No single address. RobinhoodLaunchTokenFactory deploys one instance per launch."
+    }
+  },
+  "externalDependencies": {
+    "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+    "uniswapV4": {
+      "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "positionManager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+      "stateView": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
+      "universalRouter": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "positionManagerAbi": "abis/UniswapV4PositionManager.json"
+    },
+    "canonicalArenaAvalanche": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C",
+    "avalancheBridge": "0xA59Ad32dAd425250ca3601F964d92611818F86f7"
+  }
+}

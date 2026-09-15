@@ -1,0 +1,143 @@
+{
+  "mode": "robinhood-v2-production-native-replacement",
+  "chainId": 4663,
+  "productionDeployer": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "initialTokenId": "1200000000000",
+  "reused": {
+    "managerImplementation": "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+    "tokenFactory": "0x3d1170c9ea8Bb49A58bAAf3378C7c97E59Bb2800",
+    "dividendController": "0xa8F6Cb031C5f0f923909842D4435687e250559bC",
+    "dividendFeeHelper": "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+    "poolDeployer": "0x4B400e1AcC76729BE6A86C3fC73Ab2b8d80B78EF",
+    "lpVault": "0x7d4A72C6EF99E935c1e723b8eD6e38Ac51C8190b",
+    "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+    "universalRouter": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+  },
+  "contracts": {
+    "manager": {
+      "address": "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+      "transaction": "0xcbdc7e812241b4a8eb082d0b7976f3f3d738f9a975733de7babc8f73eb67982f",
+      "blockNumber": 58005061,
+      "constructorArguments": [
+        "0xE46503C508aC75F95e027AC270F60df8407aAa67",
+        "0x95b6ef0c0000000000000000000000004d8e431f3d93b57e3cdd3fa9cc4e6d248678933b0000000000000000000000003d1170c9ea8bb49a58baaf3378c7c97e59bb2800000000000000000000000000a8f6cb031c5f0f923909842d4435687e250559bc000000000000000000000000b28dd2fc871ba2960a4c84b81a13facca87051bb0000000000000000000000004b400e1acc76729be6a86c3fc73ab2b8d80b78ef000000000000000000000000000000000000000000000000000001176592e000"
+      ],
+      "source": "contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "sourceHash": "0x96c8e8a54eaf4b37b1fbebf079c0d6eb4787e9d7fdeeca549e09c3ccccd8513f",
+      "runtimeBytes": 130,
+      "gasUsed": "334772"
+    },
+    "priceHelper": {
+      "address": "0x24a21CB67D0e6609D26Cc678db7ef13bffFEC142",
+      "transaction": "0x1e7dd696ccbff0b4cadcec6c37fe31f5a137712fd3fc42e6f052408d8ad43e3f",
+      "blockNumber": 58005128,
+      "constructorArguments": [
+        "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativePriceHelper.sol",
+      "sourceHash": "0x5a1c6eae4a52b1cd36091e6c4b58e065f800c748c387fa8fba6a64b4a27999a2",
+      "runtimeBytes": 1791,
+      "gasUsed": "444268"
+    },
+    "quoter": {
+      "address": "0x24Dbbc15f3c397DeBE33d64F877B85b2e6BE918a",
+      "transaction": "0x1c325d5e3a94dc908d3edeb85f26d03582d8a52a5e5fc68c5e399a9438cc5c99",
+      "blockNumber": 58005153,
+      "constructorArguments": [
+        "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+        "0x24a21CB67D0e6609D26Cc678db7ef13bffFEC142"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativeQuoter.sol",
+      "sourceHash": "0xcd572ac18fbf19b76459a479113cf9557eaff88966d5b0276de4bb43e577f85e",
+      "runtimeBytes": 6717,
+      "gasUsed": "1515926"
+    },
+    "buyer": {
+      "address": "0xBA8f8025461E22164426E5DF84354138099eEacA",
+      "transaction": "0x8963985753ae5e4c52fbf38f4afa83db2c0fd26c45c234d774f244abce7e7ddd",
+      "blockNumber": 58005220,
+      "constructorArguments": [
+        "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+        "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodV2NativeBuyer.sol",
+      "sourceHash": "0xd0e53a04887eefec916b8c1ee6fbe1a3d87273eb666e9d3892fb380f423a65ec",
+      "runtimeBytes": 10471,
+      "gasUsed": "2360767"
+    }
+  },
+  "transactions": {
+    "deploy:manager": "0xcbdc7e812241b4a8eb082d0b7976f3f3d738f9a975733de7babc8f73eb67982f",
+    "deploy:priceHelper": "0x1e7dd696ccbff0b4cadcec6c37fe31f5a137712fd3fc42e6f052408d8ad43e3f",
+    "deploy:quoter": "0x1c325d5e3a94dc908d3edeb85f26d03582d8a52a5e5fc68c5e399a9438cc5c99",
+    "deploy:buyer": "0x8963985753ae5e4c52fbf38f4afa83db2c0fd26c45c234d774f244abce7e7ddd",
+    "manager:set-lp-vault": "0xb630ecadc02a383585f8faf602f4f9fa08efffbd38028cd2b87e3bff66f48f5e",
+    "manager:set-referral-registry": "0xe51bd76cf8d955667b329c8c5ea0b9823bbd759006264ed4f38e4f868b7046bf",
+    "manager:set-fee-destination": "0xf2b85078d304567a201fa0ca6d93d8280982f1efd16b730ca6e0523aa6813440",
+    "manager:set-protocol-fee": "0x11f62fb9c9f0fb2064149182fc5b7cce6e348b085f1781f3ab0655ab821c1752",
+    "manager:set-creation-fee": "0x6565bf7b2ec395a7041a610939de938ceca0009f02e4d6f995c6ec34eae20e1c",
+    "manager:set-production-curve": "0x22592b17c1534019c1d99db151a68be69de7077838fb5bdc2c27e6f75e97d021",
+    "manager:set-bonding-test-curve": "0x04fc74a81af8fbc8720ba7e2e76a882c41bd2d090746fe8f0584c845a4124dec",
+    "manager:set-production-pool": "0x640b99951aef3969c59107c676868c6c6e5f43db08f703d07c9f9a4029ff88e4",
+    "manager:enable-lp": "0x7c34e6c698603d50ec9e7f903e67fb3a3de078ea3e528d0f857f0340b9566837",
+    "fee-helper:authorize-manager": "0x15f4c84826c61fed339bc295824b238e505c68457e3c2bc63ff0aec0823d97b1",
+    "pool-deployer:authorize-manager": "0xa84cc5797ae4db8f7bd47e86b6b52a076a922241de0e436466f1c96b8a272f6b"
+  },
+  "verification": {
+    "blockNumber": 58006093,
+    "onchainReadback": "passed",
+    "owner": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+    "paused": true,
+    "registrarEnabled": false,
+    "canDeployLp": true,
+    "tokenIdentifier": "1200000000000"
+  },
+  "productionBaseline": {
+    "lpVault": "0x7d4A72C6EF99E935c1e723b8eD6e38Ac51C8190b",
+    "referralRegistry": "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
+    "protocolFeeDestination": "0x7C85Be2F4043201461EF98124Dd5d273B2f575fF",
+    "protocolFeeBasisPoint": "100",
+    "referralFeeBasisPoint": "0",
+    "creationFeeVault": "0x160b4D8fe9D6fe1d10ABd5E18097676948d288A5",
+    "creationFeeAmount": "800000000000000",
+    "transferCreationFee": true,
+    "pool": {
+      "tickSpacing": "60",
+      "tickLower": "-887220",
+      "tickUpper": "887220",
+      "fee": "2500",
+      "startingPrice": "818920342453882326786417951080282",
+      "token0Amount": "0",
+      "token1Amount": "0",
+      "token0": "0x0000000000000000000000000000000000000000",
+      "token1": "0x0000000000000000000000000000000000000000",
+      "recipient": "0x7d4A72C6EF99E935c1e723b8eD6e38Ac51C8190b",
+      "hookContract": "0xa4555952075BDFD473521f3d754d13442EE3e0Cc",
+      "hookData": "0x"
+    },
+    "invertedStartingPrice": "7665094405369685981117125"
+  },
+  "curves": {
+    "production": {
+      "a": "65535",
+      "b": "0",
+      "scaler": "3938401442307",
+      "tokenSplit": "75",
+      "totalSupply": "1000000000000000000000000000",
+      "terminalReserve": "2340000000000411335"
+    },
+    "bondingTest": {
+      "a": "65535",
+      "b": "0",
+      "scaler": "92158593750000000",
+      "tokenSplit": "75",
+      "totalSupply": "1000000000000000000000000000",
+      "terminalReserve": "100000000000000",
+      "mustBeRevokedBeforePublicLaunch": true
+    }
+  },
+  "updatedAt": "2026-09-08T21:19:16.919Z",
+  "status": "production-native-v2-replacement-configured-disabled-eoa-owned"
+}

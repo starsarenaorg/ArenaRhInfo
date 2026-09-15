@@ -1,0 +1,275 @@
+{
+  "mode": "robinhood-v2-production-activation",
+  "chainId": 4663,
+  "operator": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "managers": [
+    "0x45537848Cb5bC7DC30cA3188E5E9a6dD1dD8e8A5",
+    "0x2AF1D4240F9c5Bdd8142a73F55E0E74B39E79A36",
+    "0x7685Ff498685247bB3419d2982281EB002FF4dB6",
+    "0x39CAb5AeB881ED8349DBe175393a85A3f38DAAA2",
+    "0x86991083946269c51Fe258b2Fd80b01b5685333E",
+    "0x2eaDc658bA72a7857EA179550B157D95a1dB2577",
+    "0xA4481587FD0BF5BA1c0948A65e49A6558109E5AE",
+    "0x1ed84696a221D767249A0d26B6FEb02C645de0d5",
+    "0x8a9B8FbC2d621e334af996623269c6C81E24ef8c",
+    "0x07478206AF95faD0dC2F99627C3AbbbCa82A74D5",
+    "0xB10A1c88589c4C5bbbbd148fA9c9aC74dB9275e1"
+  ],
+  "excludedExpansionManagerCount": 15,
+  "transactions": {
+    "deprecated-native:disable-fee-setter": {
+      "hash": "0x68db2aaacd94490c585c584c4d787b9b1f622a95404cc68ef29e3b6826ed45ab",
+      "blockNumber": 59601717,
+      "gasUsed": "25754"
+    },
+    "deprecated-native:disable-pool-deployer": {
+      "hash": "0x97e713e615709be68d02b808fe6421201dbc5f2fe5d3157419dc43ad67f168dd",
+      "blockNumber": 59601797,
+      "gasUsed": "24528"
+    },
+    "native:revoke-test-curve": {
+      "hash": "0xcea910fc57e58b862c00ec47fbcb03a92798d3e6319caec5af4f40db30cdecbd",
+      "blockNumber": 59601875,
+      "gasUsed": "33334"
+    },
+    "ETH:enable-registrar": {
+      "hash": "0x86bc3cc9ae230faacea577616230550a939aa5375c2f2a6b5342e2e7fbe1c85c",
+      "blockNumber": 59601954,
+      "gasUsed": "48081"
+    },
+    "NVDA:enable-registrar": {
+      "hash": "0x9e439ea3e8bd02c712a6a9bedf21cc779606039760728bd48437c1aa837386eb",
+      "blockNumber": 59601992,
+      "gasUsed": "48081"
+    },
+    "SPCX:enable-registrar": {
+      "hash": "0xee119d08d0d26c813089f86be3250cbb8dbeb1997c398a3022823eafd5d162da",
+      "blockNumber": 59602077,
+      "gasUsed": "48081"
+    },
+    "AAPL:enable-registrar": {
+      "hash": "0xf3c35ff43fd1417449ac2f98b81c7e555a34cd8027ba474c1062796701278d8e",
+      "blockNumber": 59602322,
+      "gasUsed": "48081"
+    },
+    "META:enable-registrar": {
+      "hash": "0x4b3ea0e683f5196ab87d2f6c0583df5c274451040ae5f25dc6d6c4ba70abfe9b",
+      "blockNumber": 59602443,
+      "gasUsed": "48081"
+    },
+    "TSLA:enable-registrar": {
+      "hash": "0x9f356d2b259d059370e43f7f5ba5a710b5585b99a6f8ef9bef737d30a5360ae2",
+      "blockNumber": 59602528,
+      "gasUsed": "48081"
+    },
+    "GOOGL:enable-registrar": {
+      "hash": "0x9bd0761008555adc7214a3fed63f7397b3f5df72b187fd8d4f4a5881583dd79e",
+      "blockNumber": 59602631,
+      "gasUsed": "48081"
+    },
+    "ARENA:enable-registrar": {
+      "hash": "0x779d253f8850aaf13409581ec06cfb4be67333f686635f360f0c418a065012a0",
+      "blockNumber": 59602792,
+      "gasUsed": "48081"
+    },
+    "PACK:enable-registrar": {
+      "hash": "0xf9a99fcc6f436ba0002a9c2fca6d0289bd21ce3ec1703f7b87d3e9cb72345fd3",
+      "blockNumber": 59602836,
+      "gasUsed": "48081"
+    },
+    "THROBBIN:enable-registrar": {
+      "hash": "0xbe0b124503dd5148dc5c3fc0080cccd0d7e2daa7e2d3ed2942431d3eb0311b30",
+      "blockNumber": 59602924,
+      "gasUsed": "48081"
+    },
+    "GME:enable-registrar": {
+      "hash": "0xa3d4f53d30ac6497437e5e4a9542371fd4e099491c9df1657e7d23ebb9718006",
+      "blockNumber": 59602964,
+      "gasUsed": "48081"
+    },
+    "NVDA:enable-registry": {
+      "hash": "0x3b5205550cea9eec304ba0f9855878a399e8c38374ad56a541a78d65f29ea724",
+      "blockNumber": 59603050,
+      "gasUsed": "30792"
+    },
+    "SPCX:enable-registry": {
+      "hash": "0x132ee903ae800c5a64779da567ae3d171f94ec63f6ab0020ec861ee9e9ff314d",
+      "blockNumber": 59603170,
+      "gasUsed": "30792"
+    },
+    "AAPL:enable-registry": {
+      "hash": "0x25709995000b306aaf701d474ab7af93e96dd50ddaa2f3ec220b7cb16c8ba06d",
+      "blockNumber": 59603280,
+      "gasUsed": "30792"
+    },
+    "META:enable-registry": {
+      "hash": "0x781de73689e5600a32650db6c8c2b5ad15d5a7c13ce0112deecba56931dbdb72",
+      "blockNumber": 59604052,
+      "gasUsed": "30792"
+    },
+    "TSLA:enable-registry": {
+      "hash": "0x23d7826c749bcd7b6240a9d93294dad19fbe0f1b03f065d6053d551a1278cd99",
+      "blockNumber": 59604134,
+      "gasUsed": "30780"
+    },
+    "GOOGL:enable-registry": {
+      "hash": "0x7af9889155fd4c054e8c740227744252d215dfd27d915bad34fef9274808414b",
+      "blockNumber": 59604220,
+      "gasUsed": "30792"
+    },
+    "ARENA:enable-registry": {
+      "hash": "0x3f8c44633355da6f142f3650a52ec23c4a16f36f6bada0c940af9464b542c359",
+      "blockNumber": 59604305,
+      "gasUsed": "30792"
+    },
+    "PACK:enable-registry": {
+      "hash": "0x295282a18bbe0edc115eb4e15ab02ee01ac80262d32e927b25efbd302255d6a0",
+      "blockNumber": 59604391,
+      "gasUsed": "30792"
+    },
+    "THROBBIN:enable-registry": {
+      "hash": "0x195eb7a8f27dd49f85ba1f98ca8b7050149ec45f569ceeb3b33d38e866e1be94",
+      "blockNumber": 59604476,
+      "gasUsed": "30792"
+    },
+    "GME:enable-registry": {
+      "hash": "0xa48dc417512b46d5bbd396c6317415be703e48ea0b1e47ed2f74a3386d7b6d46",
+      "blockNumber": 59604562,
+      "gasUsed": "30780"
+    },
+    "ETH:unpause": {
+      "hash": "0x3b333b6fd5af3d653813e3709808864bb15831cd8256b84641766b97bbd70fb1",
+      "blockNumber": 59604740,
+      "gasUsed": "29952"
+    },
+    "NVDA:unpause": {
+      "hash": "0x47b9813eee47942f03d277de455c3fd8b98061afe2c2f7cc99a5e696f59c69c2",
+      "blockNumber": 59604830,
+      "gasUsed": "29977"
+    },
+    "SPCX:unpause": {
+      "hash": "0x978f74227f4a68423759ea2d684d3abe365076d60f79d999f5657e7212489061",
+      "blockNumber": 59604978,
+      "gasUsed": "29977"
+    },
+    "AAPL:unpause": {
+      "hash": "0xc3b5616d657f589e9b33c0897b3b6545bbd533a55d5ae8afab2f2e3f808fb719",
+      "blockNumber": 59605085,
+      "gasUsed": "29977"
+    },
+    "META:unpause": {
+      "hash": "0x02dd4f2615bc580410535fa142bf81fced146a6fa31e094d4e09913c3a2fbeb9",
+      "blockNumber": 59605124,
+      "gasUsed": "29977"
+    },
+    "TSLA:unpause": {
+      "hash": "0xa691a2973086c4590eaae05bb3dc535a6c8e850a16c06edcff8f535481ff685b",
+      "blockNumber": 59605255,
+      "gasUsed": "29977"
+    },
+    "GOOGL:unpause": {
+      "hash": "0x13efeb42d9abe465dbc1c434f8e93e4cb1dfbb50e038135bf1dcc415b4b2ad47",
+      "blockNumber": 59605354,
+      "gasUsed": "29977"
+    },
+    "ARENA:unpause": {
+      "hash": "0x24e992adc146149869a84eb62a285c1d38443c73fae91e27059e3a1f5cdf31d5",
+      "blockNumber": 59605432,
+      "gasUsed": "29977"
+    },
+    "PACK:unpause": {
+      "hash": "0xd2751f255212ceaa7e752dfd943fcb0d256d1fc114bbcf4ac55e6af59c947030",
+      "blockNumber": 59605512,
+      "gasUsed": "29977"
+    },
+    "THROBBIN:unpause": {
+      "hash": "0xfeb20b928191efc9ffa0596dad5e0fbd6cfe53d31d6be7d744eb7f7a82098aa7",
+      "blockNumber": 59605639,
+      "gasUsed": "29977"
+    },
+    "GME:unpause": {
+      "hash": "0xa7476c55dfa0ffe8c0c3ed348593f5ec5d15cc776ef189fb6833a86fba7403fc",
+      "blockNumber": 59605682,
+      "gasUsed": "29977"
+    }
+  },
+  "updatedAt": "2026-09-10T18:09:02.295Z",
+  "status": "production-v2-native-and-core-prism-open",
+  "completedAt": "2026-09-10T18:09:02.295Z",
+  "finalState": {
+    "registrarStates": {
+      "ETH": true,
+      "NVDA": true,
+      "SPCX": true,
+      "AAPL": true,
+      "META": true,
+      "TSLA": true,
+      "GOOGL": true,
+      "ARENA": true,
+      "PACK": true,
+      "THROBBIN": true,
+      "GME": true
+    },
+    "registryStates": {
+      "NVDA": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "SPCX": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "AAPL": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "META": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "TSLA": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "GOOGL": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "ARENA": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "PACK": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "THROBBIN": {
+        "managerMatches": true,
+        "enabled": true
+      },
+      "GME": {
+        "managerMatches": true,
+        "enabled": true
+      }
+    },
+    "pausedStates": {
+      "ETH": false,
+      "NVDA": false,
+      "SPCX": false,
+      "AAPL": false,
+      "META": false,
+      "TSLA": false,
+      "GOOGL": false,
+      "ARENA": false,
+      "PACK": false,
+      "THROBBIN": false,
+      "GME": false
+    },
+    "testCurveSupply": "0",
+    "deprecatedNativePermissions": {
+      "registrar": false,
+      "feeSetter": false,
+      "poolDeployer": false
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "mode": "robinhood-v2-staging-processor-proxy",
+  "chainId": 4663,
+  "contracts": {
+    "processorImplementation": {
+      "address": "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7",
+      "transaction": "0x64a1c75486e886565ef37ea3489324b272e2563764de86e0b6d22e5a40b96024",
+      "blockNumber": 56824693,
+      "source": "contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+      "contract": "RobinhoodDividendProcessor",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0xf5c983becde1cb82f0f24bebc92635cbfe50abf12405cd71efedb24a30708185",
+      "creationBytecodeHash": "0x91ae19135d05271c5bce9c9c69ba336dda25a7ed682d40ba829d1d154ac9072a",
+      "runtimeBytes": 4820,
+      "gasUsed": "1121302"
+    },
+    "processor": {
+      "address": "0x30A424897C994f2BA8774709272a97CD6E09Cdb5",
+      "transaction": "0xcfb20a59b91c8f39d4c3014fdcd965ef04ceaa3b1d6e6e45aad45c71353e677b",
+      "blockNumber": 56806888,
+      "constructorArguments": [
+        "0x23cc734fDd0eE0C0804b6354343dAfD9a91B072E",
+        "0x485cc9550000000000000000000000004d8e431f3d93b57e3cdd3fa9cc4e6d248678933b000000000000000000000000a9fafec9343318d8b7297c616e0ed1d4c64fd6f3"
+      ],
+      "source": "contracts/contracts/proxy/RobinhoodTokenManagerProxy.sol",
+      "contract": "RobinhoodTokenManagerProxy",
+      "compiler": "0.8.26+commit.8a97fa7a.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0x96c8e8a54eaf4b37b1fbebf079c0d6eb4787e9d7fdeeca549e09c3ccccd8513f",
+      "creationBytecodeHash": "0x6955f820f8d65fcd1219092779e6aa862670473647d15d4dc1ed4ee34f9e7daf",
+      "runtimeBytes": 130,
+      "gasUsed": "215320"
+    },
+    "processorImplementationHistory": [
+      {
+        "address": "0x23cc734fDd0eE0C0804b6354343dAfD9a91B072E",
+        "transaction": "0x65ea279acf9e97dac06ee0640a9c5004470e0f94e1a210c644914ce5da666e64",
+        "blockNumber": 56806821,
+        "constructorArguments": [],
+        "source": "contractsV2/contracts/robinhood/RobinhoodDividendProcessor.sol",
+        "contract": "RobinhoodDividendProcessor",
+        "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "cancun"
+        },
+        "sourceHash": "0x10cc67fa04a3cfb04c0ec953bbf09747dcc8ddcfc795dbed51d529f8c4947006",
+        "creationBytecodeHash": "0xdeb07c54e13e345b6b8caf7fd1dd268313fe08ee580604bdc50b4bb733459426",
+        "runtimeBytes": 4938,
+        "gasUsed": "1146825"
+      }
+    ]
+  },
+  "transactions": {
+    "deploy:processorImplementation": "0x65ea279acf9e97dac06ee0640a9c5004470e0f94e1a210c644914ce5da666e64",
+    "deploy:processor": "0xcfb20a59b91c8f39d4c3014fdcd965ef04ceaa3b1d6e6e45aad45c71353e677b",
+    "configure:controller-default-processor": "0xc2170cccea263949c5e7b3a06830ae203bfe60015067f11821f757bab0df9008",
+    "upgrade:processor:overflow-accounting-fix": "0x84a80bd8ffc6b9b0ea160049fe1c0834953ef364c46dc8f874fadd70167f5364"
+  },
+  "configuration": {
+    "controller-default-processor": {
+      "transaction": "0xc2170cccea263949c5e7b3a06830ae203bfe60015067f11821f757bab0df9008",
+      "blockNumber": 56806971,
+      "gasUsed": "30680"
+    }
+  },
+  "notes": [
+    "Sets controller.defaultProcessor for future token registrations.",
+    "Existing tokenIds keep their old processor list unless migrated separately."
+  ],
+  "deployer": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "controller": "0xa9fafEC9343318D8b7297C616e0Ed1d4C64FD6f3",
+  "updatedAt": "2026-09-07T12:12:43.013Z",
+  "status": "complete-accounting-fixed",
+  "verification": {
+    "processor": "0x30A424897C994f2BA8774709272a97CD6E09Cdb5",
+    "processorImplementation": "0x353F9f139eD0E775eFeB2c760384Dec7Efd203a7",
+    "controller": "0xa9fafEC9343318D8b7297C616e0Ed1d4C64FD6f3",
+    "defaultProcessor": "0x30A424897C994f2BA8774709272a97CD6E09Cdb5"
+  }
+}

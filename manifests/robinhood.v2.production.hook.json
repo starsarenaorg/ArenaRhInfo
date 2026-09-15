@@ -1,0 +1,96 @@
+{
+  "mode": "robinhood-v2-production-mixed-fee-hook",
+  "chainId": 4663,
+  "productionOwner": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+  "contracts": {
+    "productionFeeHelper": {
+      "address": "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+      "transaction": "0xa54878e53d51eec1ee3cfcc2cbb4f9de3e3a245a8c6ee90a83e9348315589c4e",
+      "blockNumber": 57078453,
+      "constructorArguments": [
+        "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+        "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
+        2500,
+        "0x5Ab2d4181aaE405Cf12DA8E6a0b7596c252F7679",
+        0
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodDividendFeeHelper.sol",
+      "contract": "RobinhoodDividendFeeHelper",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0xfade44a377420de7bc6fdcc90d82ed3701ebb0d1bab70101961ff87b0537812f",
+      "creationBytecodeHash": "0x6798020441c456683b8dc96f842b38da5ac4c6d9e3b94116322830f1dafa5019",
+      "runtimeBytes": 5680,
+      "gasUsed": "1367057"
+    },
+    "mixedHook": {
+      "address": "0xa4555952075BDFD473521f3d754d13442EE3e0Cc",
+      "transaction": "0xa873ef6a713bae3cb433dcc90d9ab0a2c7ded73e5a45447267ed9f3e1bcdc348",
+      "blockNumber": 57078507,
+      "constructorArguments": [
+        "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+        "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+        "0x8366a39CC670B4001A1121B8F6A443A643e40951"
+      ],
+      "source": "contractsV2/contracts/robinhood/RobinhoodMixedFeeHook.sol",
+      "contract": "RobinhoodMixedFeeHook",
+      "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+      "settings": {
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "viaIR": true,
+        "evmVersion": "cancun"
+      },
+      "sourceHash": "0x220a28e31972bb4e077b62b452e6d92676fc3523ea9544d485809c109b605ec9",
+      "creationBytecodeHash": "0x00bea99c3302bf686f1e49e2124972863fa9ea3c8b6ef28e4e448bb02f9b5d24",
+      "runtimeBytes": 6192,
+      "gasUsed": "1371622",
+      "factory": "0xd5bF02bfc316A5f4Ef000140E8067bAc98Bb24dC",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000002001",
+      "saltNonce": "8193",
+      "initCodeHash": "0xf9ea5c80f7d28e3ab4ef52e168471f0048362495123f55c06375a2c01095ef2b"
+    }
+  },
+  "transactions": {
+    "deploy:productionFeeHelper": "0xa54878e53d51eec1ee3cfcc2cbb4f9de3e3a245a8c6ee90a83e9348315589c4e",
+    "deploy:mixedHook": "0xa873ef6a713bae3cb433dcc90d9ab0a2c7ded73e5a45447267ed9f3e1bcdc348"
+  },
+  "configuration": {
+    "productionFeeHelper": "0xB28DD2fC871BA2960a4c84b81a13Facca87051bB",
+    "mixedHook": "0xa4555952075BDFD473521f3d754d13442EE3e0Cc",
+    "hookOwner": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+    "feeHelperOwner": "0x4D8E431f3d93B57E3CDd3FA9cc4e6D248678933B",
+    "referralRegistry": "0xE526e9f9860EeAD6f59BAA0913B7c624Ea0d29c4",
+    "protocolFeeRecipient": "0x5Ab2d4181aaE405Cf12DA8E6a0b7596c252F7679",
+    "protocolFeePpm": 2500,
+    "referralFeePpm": 0,
+    "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "maxTotalFeePpm": 99000,
+    "authorizedPoolDeployers": [
+      "0x4B400e1AcC76729BE6A86C3fC73Ab2b8d80B78EF"
+    ],
+    "pendingOwner": "0x0c6aCd89b5fFec5D2a5505aA5e7A3aEFC4E1Cff1"
+  },
+  "updatedAt": "2026-09-08T17:25:28.000Z",
+  "verification": {
+    "blockNumber": 57088277,
+    "onchainReadback": "passed",
+    "explorer": "fully-verified",
+    "explorerName": "RobinhoodMixedFeeHook",
+    "blockscoutGuid": "a4555952075bdfd473521f3d754d13442ee3e0cc6a9fdc5e",
+    "explorerUrl": "https://robinhoodchain.blockscout.com/address/0xa4555952075BDFD473521f3d754d13442EE3e0Cc?tab=contract",
+    "sourcify": "exact-match",
+    "sourcifyVerificationId": "13012e7f-b8fa-4872-b29f-d2b52ac768f3",
+    "sourcifyUrl": "https://repo.sourcify.dev/4663/0xa4555952075BDFD473521f3d754d13442EE3e0Cc"
+  },
+  "status": "production-v2-mixed-hook-active-pending-safe-acceptance"
+}
